@@ -24,6 +24,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; min-height: 100vh; }
 
+  /* Auth */
   #auth-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; gap: 20px; padding: 2rem; }
   .auth-logo-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .auth-logo { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--red); object-fit: cover; background: #fff; }
@@ -39,6 +40,7 @@
   .btn-primary:hover { background: var(--red-dark); }
   .auth-err { font-size: 12px; color: #ff6b6b; display: none; }
 
+  /* App */
   #app { display: none; flex-direction: column; min-height: 100vh; }
   header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 1.5rem; height: 54px; display: flex; align-items: center; gap: 10px; position: sticky; top: 0; z-index: 10; }
   .header-logo { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--red); background: #fff; }
@@ -51,6 +53,7 @@
 
   main { padding: 1.5rem; max-width: 960px; margin: 0 auto; width: 100%; }
 
+  /* Overall */
   .overall { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--red); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
   .overall-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
   .overall-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
@@ -62,6 +65,7 @@
   .fill-group { background: var(--red); }
   .fill-player { background: #666; }
 
+  /* Groups */
   .groups { display: flex; flex-direction: column; gap: 8px; }
   .gcard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
   .gcard:hover { border-color: var(--border2); }
@@ -70,38 +74,60 @@
   .gnum { width: 26px; height: 26px; border-radius: 5px; background: var(--red-bg); border: 1px solid rgba(204,0,0,.3); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; color: var(--red); }
   .gtitle { flex: 1; font-size: 13px; font-weight: 600; color: #fff; }
   .gsub { font-size: 11px; color: var(--muted); }
-  .gchev { font-size: 16px; color: var(--muted); transition: transform .2s; min-width: 16px; text-align: center; }
+  .gchev { font-size: 16px; color: var(--muted); min-width: 16px; text-align: center; }
   .gbar-wrap { padding: 0 1.1rem .7rem; }
 
-  .members { border-top: 1px solid var(--border); padding: .9rem 1.1rem; display: none; flex-direction: column; gap: 14px; }
+  .members { border-top: 1px solid var(--border); padding: .9rem 1.1rem; display: none; flex-direction: column; gap: 12px; }
   .members.open { display: flex; }
 
+  /* Member row */
   .mrow { padding-bottom: 12px; border-bottom: 1px solid var(--border); }
   .mrow:last-child { border-bottom: none; padding-bottom: 0; }
-  .mhead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-  .mname { font-size: 12px; font-weight: 600; color: #fff; }
-  .msub { font-size: 10px; color: var(--muted); }
+  .mhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; gap: 8px; }
+  .mname-wrap { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; }
+  .mname { font-size: 12px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mname-input { font-size: 12px; font-weight: 600; color: #fff; background: var(--surface2); border: 1px solid var(--red); border-radius: 4px; padding: 2px 6px; outline: none; width: 160px; display: none; }
+  .msub { font-size: 10px; color: var(--muted); white-space: nowrap; }
+  .mactions { display: flex; gap: 4px; flex-shrink: 0; }
+  .mbtn { background: none; border: 1px solid var(--border2); border-radius: 4px; color: var(--muted); cursor: pointer; font-size: 10px; padding: 3px 7px; transition: all .15s; white-space: nowrap; }
+  .mbtn:hover { color: var(--text); border-color: var(--border2); }
+  .mbtn.edit:hover { color: #4f8ef7; border-color: #4f8ef7; }
+  .mbtn.save { color: var(--green); border-color: rgba(45,206,137,.4); display: none; }
+  .mbtn.save:hover { background: var(--green-bg); }
+  .mbtn.del:hover { color: var(--red); border-color: var(--red); }
+
   .doc-grid { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 7px; }
   .dbtn { flex: 0 0 auto; padding: 4px 7px; font-size: 10px; background: var(--surface2); border: 1px solid var(--border2); border-radius: var(--radius-sm); color: var(--muted); cursor: pointer; transition: all .15s; white-space: nowrap; font-weight: 500; }
   .dbtn.done { background: var(--green-bg); border-color: rgba(45,206,137,.3); color: var(--green); }
   .dbtn:hover:not(.done) { border-color: var(--red); color: var(--red); }
 
-  #status-bar { position: fixed; bottom: 1rem; right: 1rem; background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 8px 14px; font-size: 12px; color: var(--muted); display: none; transition: opacity .3s; }
+  /* Add player */
+  .add-player-row { display: flex; gap: 6px; margin-top: 8px; }
+  .add-player-row input { flex: 1; background: var(--bg); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 7px 10px; color: var(--text); font-size: 12px; outline: none; transition: border-color .2s; }
+  .add-player-row input:focus { border-color: var(--red); }
+  .add-player-row input::placeholder { color: var(--muted); }
+  .btn-add { background: var(--red-bg); border: 1px solid rgba(204,0,0,.3); color: var(--red); border-radius: var(--radius-sm); padding: 7px 12px; font-size: 11px; font-weight: 600; cursor: pointer; transition: background .15s; white-space: nowrap; }
+  .btn-add:hover { background: rgba(204,0,0,.2); }
 
-  #setup-modal { position: fixed; inset: 0; background: rgba(0,0,0,.8); display: none; align-items: center; justify-content: center; z-index: 50; padding: 1rem; }
-  #setup-modal.open { display: flex; }
-  .modal-box { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); padding: 1.5rem; width: 100%; max-width: 480px; max-height: 85vh; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
-  .modal-title { font-size: 17px; font-weight: 700; color: #fff; }
-  .modal-sub { font-size: 12px; color: var(--muted); line-height: 1.6; }
-  .btn-row { display: flex; gap: 8px; }
-  .btn-secondary { background: var(--surface2); color: var(--muted); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 9px 16px; font-size: 13px; cursor: pointer; flex: 1; }
-  .btn-secondary:hover { color: var(--text); }
-  .btn-primary.sm { font-size: 13px; padding: 9px 16px; flex: 1; width: auto; }
+  /* Status */
+  #status-bar { position: fixed; bottom: 1rem; right: 1rem; background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 8px 14px; font-size: 12px; color: var(--muted); display: none; transition: opacity .3s; z-index: 99; }
 
+  /* Loading */
   #loading { position: fixed; inset: 0; background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; gap: 16px; }
   .loading-logo { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--red); object-fit: cover; background: #fff; animation: pulse 1.5s ease-in-out infinite; }
   @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
   .loading-text { font-size: 13px; color: var(--muted); }
+
+  /* Confirm modal */
+  #confirm-modal { position: fixed; inset: 0; background: rgba(0,0,0,.8); display: none; align-items: center; justify-content: center; z-index: 50; padding: 1rem; }
+  #confirm-modal.open { display: flex; }
+  .modal-box { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); padding: 1.5rem; width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 14px; }
+  .modal-title { font-size: 16px; font-weight: 700; color: #fff; }
+  .modal-sub { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .btn-row { display: flex; gap: 8px; }
+  .btn-cancel { background: var(--surface2); color: var(--muted); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 9px 16px; font-size: 13px; cursor: pointer; flex: 1; }
+  .btn-confirm-del { background: var(--red-bg); color: var(--red); border: 1px solid rgba(204,0,0,.3); border-radius: var(--radius-sm); padding: 9px 16px; font-size: 13px; font-weight: 600; cursor: pointer; flex: 1; }
+  .btn-confirm-del:hover { background: rgba(204,0,0,.25); }
 
   @media(max-width:600px){ main{padding:1rem;} header{padding:0 1rem;} }
 </style>
@@ -148,12 +174,13 @@
   </main>
 </div>
 
-<div id="setup-modal">
+<div id="confirm-modal">
   <div class="modal-box">
-    <div class="modal-title">Player data loaded</div>
-    <div class="modal-sub">All pod names and player names have been pre-loaded. Click Start to begin tracking.</div>
+    <div class="modal-title">Remove player?</div>
+    <div class="modal-sub" id="confirm-msg">This will permanently remove the player and all their document progress.</div>
     <div class="btn-row">
-      <button class="btn-primary sm" id="setup-save">Start tracking</button>
+      <button class="btn-cancel" id="confirm-cancel">Cancel</button>
+      <button class="btn-confirm-del" id="confirm-ok">Remove</button>
     </div>
   </div>
 </div>
@@ -176,8 +203,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// ── Player data ──────────────────────────────────
-const PODS = {
+// ── Default players (imported to Firestore on first run, NOT shown in UI from here) ──
+const DEFAULT_PODS = {
   1: ["John Isalambo (C)","Caleb Kiprotich","Simon Jawichre","Camille Marlyn","Gabriel Ogweno","Stephen Mankone","Kevin Komen"],
   2: ["Wambani Osundwa (C)","Jeremy Odhiambo","Meshack Opagala","Brian Nyamboki","Arnold Keya","Emmanuel Adoyo","Peter Naman"],
   3: ["Meshack Ongechi (C)","Morgan Ngumbi","Loui Ramone","Jerry Olem","John Ochido","Hopefaustin Tokali"],
@@ -192,49 +219,40 @@ const PODS = {
 };
 
 const DOCS = [
-  "Passport Photo",
-  "National ID/BC",
-  "Player Profile",
-  "Code of Conduct",
-  "Rugby Ready",
-  "Laws of Game",
-  "First Aid",
-  "Concussion Mgmt",
-  "Keep Rugby Clean"
+  "Passport Photo","National ID/BC","Player Profile","Code of Conduct",
+  "Rugby Ready","Laws of Game","First Aid","Concussion Mgmt","Keep Rugby Clean"
 ];
-
-const DOCS_PER = DOCS.length; // 9
+const DOCS_PER = DOCS.length;
 const NUM_PODS = 11;
-const TOTAL_PLAYERS = Object.values(PODS).reduce((s,m)=>s+m.length,0); // 72
-const TOTAL_MAX = TOTAL_PLAYERS * DOCS_PER;
 
-function defaultNames(){
-  const n={};
-  for(let g=1;g<=NUM_PODS;g++){
-    n[`group_${g}`]=`Pod ${g}`;
-    PODS[g].forEach((name,i)=>{ n[`member_${g}_${i+1}`]=name; });
-  }
-  return n;
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app), db = getFirestore(app);
+
+// localData: { state: {}, pods: { 1: [{id,name}, ...], ... } }
+let localData = { state: {}, pods: {} };
+let unsubscribe = null;
+
+function pct(a,b){ return b===0?0:Math.round(a/b*100); }
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+function showStatus(msg,ms=1800){
+  const b=document.getElementById('status-bar');
+  b.textContent=msg; b.style.display='block'; b.style.opacity='1';
+  setTimeout(()=>{ b.style.opacity='0'; setTimeout(()=>b.style.display='none',300); },ms);
 }
 
-const app=initializeApp(firebaseConfig);
-const auth=getAuth(app),db=getFirestore(app);
-let localState={},localNames=defaultNames(),unsubscribe=null;
-
-function key(g,m){return`${g}_${m}`;}
-function pct(a,b){return b===0?0:Math.round(a/b*100);}
-function showStatus(msg,ms=1800){const b=document.getElementById('status-bar');b.textContent=msg;b.style.display='block';b.style.opacity='1';setTimeout(()=>{b.style.opacity='0';setTimeout(()=>b.style.display='none',300);},ms);}
-
-document.getElementById('btn-signin').addEventListener('click',async()=>{
-  const email=document.getElementById('auth-email').value.trim(),pass=document.getElementById('auth-pass').value,err=document.getElementById('auth-err');
+// ── Auth ──
+document.getElementById('btn-signin').addEventListener('click', async()=>{
+  const email=document.getElementById('auth-email').value.trim();
+  const pass=document.getElementById('auth-pass').value;
+  const err=document.getElementById('auth-err');
   err.style.display='none';
-  try{await signInWithEmailAndPassword(auth,email,pass);}
-  catch(e){err.textContent='Incorrect email or password.';err.style.display='block';}
+  try{ await signInWithEmailAndPassword(auth,email,pass); }
+  catch(e){ err.textContent='Incorrect email or password.'; err.style.display='block'; }
 });
 document.getElementById('btn-logout').addEventListener('click',()=>signOut(auth));
-document.getElementById('auth-pass').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('btn-signin').click();});
+document.getElementById('auth-pass').addEventListener('keydown',e=>{ if(e.key==='Enter') document.getElementById('btn-signin').click(); });
 
-onAuthStateChanged(auth,user=>{
+onAuthStateChanged(auth, user=>{
   document.getElementById('loading').style.display='none';
   if(user){
     document.getElementById('auth-screen').style.display='none';
@@ -244,118 +262,233 @@ onAuthStateChanged(auth,user=>{
   } else {
     document.getElementById('auth-screen').style.display='flex';
     document.getElementById('app').style.display='none';
-    if(unsubscribe){unsubscribe();unsubscribe=null;}
+    if(unsubscribe){ unsubscribe(); unsubscribe=null; }
   }
 });
 
+// ── Firestore ──
 function startListening(){
-  const ref=doc(db,'tracker','main');
-  unsubscribe=onSnapshot(ref,snap=>{
+  const ref = doc(db,'tracker','main');
+  unsubscribe = onSnapshot(ref, snap=>{
     if(!snap.exists()){
-      openSetupModal();
+      // First run: seed player data into Firestore
+      const pods = {};
+      for(let g=1;g<=NUM_PODS;g++){
+        pods[g] = DEFAULT_PODS[g].map(name=>({ id: uid(), name }));
+      }
+      localData = { state:{}, pods };
+      saveAll().then(()=>{ renderUI(); showStatus('Player data initialised ✓'); });
     } else {
-      const d=snap.data();
-      localState=d.state||{};
-      // always use built-in names
+      const d = snap.data();
+      localData.state = d.state || {};
+      localData.pods  = d.pods  || {};
       renderUI();
     }
   });
 }
 
-async function saveField(field,value){
-  await setDoc(doc(db,'tracker','main'),{[field]:value,updatedAt:serverTimestamp()},{merge:true});
+async function saveAll(){
+  await setDoc(doc(db,'tracker','main'),{
+    state: localData.state,
+    pods:  localData.pods,
+    updatedAt: serverTimestamp()
+  },{ merge: true });
 }
 
-async function toggleDoc(g,m,d){
-  const k=key(g,m);
-  if(!localState[k])localState[k]=new Array(DOCS_PER).fill(false);
-  localState[k][d]=!localState[k][d];
-  const val=localState[k][d];
-  const btn=document.getElementById(`btn-${g}-${m}-${d}`);
-  if(btn)btn.classList.toggle('done',val);
-  updateMemberBar(g,m);updateGroupBar(g);updateTotalBar();
-  try{await saveField('state',localState);showStatus(val?'✓ Saved':'Unmarked');}
-  catch(e){localState[k][d]=!val;document.getElementById(`btn-${g}-${m}-${d}`)?.classList.toggle('done',!val);showStatus('⚠ Save failed',3000);}
+// ── Toggle doc ──
+async function toggleDoc(g, playerId, d){
+  const k = `${g}_${playerId}`;
+  if(!localData.state[k]) localData.state[k] = new Array(DOCS_PER).fill(false);
+  localData.state[k][d] = !localData.state[k][d];
+  const val = localData.state[k][d];
+  const btn = document.getElementById(`btn-${g}-${playerId}-${d}`);
+  if(btn) btn.classList.toggle('done', val);
+  updateMemberBar(g, playerId);
+  updateGroupBar(g);
+  updateTotalBar();
+  try{ await saveAll(); showStatus(val?'✓ Saved':'Unmarked'); }
+  catch(e){ localData.state[k][d]=!val; showStatus('⚠ Save failed',3000); }
 }
 
+// ── Add player ──
+async function addPlayer(g){
+  const input = document.getElementById(`add-input-${g}`);
+  const name = input.value.trim();
+  if(!name) return;
+  const player = { id: uid(), name };
+  if(!localData.pods[g]) localData.pods[g]=[];
+  localData.pods[g].push(player);
+  input.value='';
+  appendMemberRow(g, player);
+  updateGroupBar(g);
+  updateTotalBar();
+  try{ await saveAll(); showStatus(`${name} added ✓`); }
+  catch(e){ localData.pods[g].pop(); showStatus('⚠ Save failed',3000); }
+}
+
+// ── Rename player ──
+async function saveRename(g, playerId){
+  const input = document.getElementById(`rename-${g}-${playerId}`);
+  const newName = input.value.trim();
+  if(!newName) return;
+  const player = localData.pods[g].find(p=>p.id===playerId);
+  const oldName = player.name;
+  player.name = newName;
+  document.getElementById(`mname-${g}-${playerId}`).textContent = newName;
+  toggleEditMode(g, playerId, false);
+  try{ await saveAll(); showStatus('Name updated ✓'); }
+  catch(e){ player.name=oldName; document.getElementById(`mname-${g}-${playerId}`).textContent=oldName; showStatus('⚠ Save failed',3000); }
+}
+
+function toggleEditMode(g, playerId, on){
+  document.getElementById(`mname-${g}-${playerId}`).style.display = on?'none':'block';
+  document.getElementById(`rename-${g}-${playerId}`).style.display = on?'inline-block':'none';
+  document.getElementById(`editbtn-${g}-${playerId}`).style.display = on?'none':'inline-block';
+  document.getElementById(`savebtn-${g}-${playerId}`).style.display = on?'inline-block':'none';
+  if(on){
+    const inp = document.getElementById(`rename-${g}-${playerId}`);
+    inp.value = localData.pods[g].find(p=>p.id===playerId).name;
+    inp.focus();
+  }
+}
+
+// ── Remove player ──
+let pendingRemove = null;
+function confirmRemove(g, playerId, name){
+  document.getElementById('confirm-msg').textContent = `This will permanently remove ${name} and all their document progress from Pod ${g}.`;
+  pendingRemove = { g, playerId };
+  document.getElementById('confirm-modal').classList.add('open');
+}
+document.getElementById('confirm-cancel').addEventListener('click',()=>{
+  document.getElementById('confirm-modal').classList.remove('open');
+  pendingRemove=null;
+});
+document.getElementById('confirm-ok').addEventListener('click', async()=>{
+  if(!pendingRemove) return;
+  const {g, playerId} = pendingRemove;
+  document.getElementById('confirm-modal').classList.remove('open');
+  const idx = localData.pods[g].findIndex(p=>p.id===playerId);
+  const removed = localData.pods[g].splice(idx,1)[0];
+  delete localData.state[`${g}_${playerId}`];
+  document.getElementById(`mrow-${g}-${playerId}`)?.remove();
+  updateGroupBar(g);
+  updateTotalBar();
+  try{ await saveAll(); showStatus(`${removed.name} removed`); }
+  catch(e){ showStatus('⚠ Save failed',3000); }
+  pendingRemove=null;
+});
+
+// ── Render ──
 function renderUI(){
   updateTotalBar();
-  const cont=document.getElementById('groups-container');
-  if(cont.children.length===0)buildGroupCards();
-  else{refreshAllBars();refreshAllButtons();}
+  const cont = document.getElementById('groups-container');
+  if(cont.children.length===0) buildGroupCards();
+  else { refreshAllBars(); refreshAllButtons(); }
 }
 
 function buildGroupCards(){
-  const cont=document.getElementById('groups-container');cont.innerHTML='';
+  const cont = document.getElementById('groups-container');
+  cont.innerHTML='';
   for(let g=1;g<=NUM_PODS;g++){
-    const members=PODS[g];
-    const podMax=members.length*DOCS_PER;
-    const card=document.createElement('div');card.className='gcard';
-    const head=document.createElement('div');head.className='ghead';
-    head.innerHTML=`<div class="gnum">${g}</div><div style="flex:1"><div class="gtitle">Pod ${g}</div><div class="gsub" id="gsub-${g}">0/${podMax} docs · 0%</div></div><span class="gchev" id="gchev-${g}">›</span>`;
-    const barWrap=document.createElement('div');barWrap.className='gbar-wrap';
+    const players = localData.pods[g] || [];
+    const card = document.createElement('div'); card.className='gcard';
+    const head = document.createElement('div'); head.className='ghead';
+    head.innerHTML=`<div class="gnum">${g}</div><div style="flex:1"><div class="gtitle">Pod ${g}</div><div class="gsub" id="gsub-${g}">0/${players.length*DOCS_PER} docs · 0%</div></div><span class="gchev" id="gchev-${g}">›</span>`;
+    const barWrap = document.createElement('div'); barWrap.className='gbar-wrap';
     barWrap.innerHTML=`<div class="track"><div class="fill fill-group" id="gbar-${g}" style="width:0%"></div></div>`;
-    const mem=document.createElement('div');mem.className='members';mem.id=`mem-${g}`;
+    const mem = document.createElement('div'); mem.className='members'; mem.id=`mem-${g}`;
 
-    members.forEach((name,idx)=>{
-      const m=idx+1;
-      const mrow=document.createElement('div');mrow.className='mrow';
-      let btns='<div class="doc-grid">';
-      DOCS.forEach((dname,d)=>{btns+=`<button class="dbtn" id="btn-${g}-${m}-${d}" onclick="window._toggle(${g},${m},${d})" title="${dname}">${dname}</button>`;});
-      btns+='</div>';
-      mrow.innerHTML=`<div class="mhead"><span class="mname">${name}</span><span class="msub" id="msub-${g}-${m}">0/${DOCS_PER}</span></div>${btns}<div class="track" style="margin-top:5px"><div class="fill fill-player" id="mbar-${g}-${m}" style="width:0%"></div></div>`;
-      mem.appendChild(mrow);
+    players.forEach(player=> appendMemberRow(g, player, mem));
+
+    // Add player row
+    const addRow = document.createElement('div'); addRow.className='add-player-row';
+    addRow.innerHTML=`<input id="add-input-${g}" placeholder="Add player name…"/><button class="btn-add" onclick="window._addPlayer(${g})">+ Add</button>`;
+    mem.appendChild(addRow);
+    document.addEventListener('keydown', e=>{
+      const inp = document.getElementById(`add-input-${g}`);
+      if(e.key==='Enter' && document.activeElement===inp) window._addPlayer(g);
     });
 
     head.addEventListener('click',()=>{
       const open=mem.classList.toggle('open');
-      const chev=document.getElementById(`gchev-${g}`);
-      chev.textContent=open?'˅':'›';
+      document.getElementById(`gchev-${g}`).textContent=open?'˅':'›';
     });
-    card.appendChild(head);card.appendChild(barWrap);card.appendChild(mem);
+    card.appendChild(head); card.appendChild(barWrap); card.appendChild(mem);
     cont.appendChild(card);
   }
-  refreshAllBars();refreshAllButtons();
+  refreshAllBars(); refreshAllButtons();
 }
 
-function playerDone(g,m){return(localState[key(g,m)]||[]).filter(Boolean).length;}
-function groupDone(g){let t=0;PODS[g].forEach((_,i)=>t+=playerDone(g,i+1));return t;}
-function totalDone(){let t=0;for(let g=1;g<=NUM_PODS;g++)t+=groupDone(g);return t;}
+function appendMemberRow(g, player, container){
+  const mem = container || document.getElementById(`mem-${g}`);
+  const addRow = mem.querySelector('.add-player-row');
+  const mrow = document.createElement('div');
+  mrow.className='mrow'; mrow.id=`mrow-${g}-${player.id}`;
+  let btns='<div class="doc-grid">';
+  DOCS.forEach((dname,d)=>{ btns+=`<button class="dbtn" id="btn-${g}-${player.id}-${d}" onclick="window._toggle(${g},'${player.id}',${d})" title="${dname}">${dname}</button>`; });
+  btns+='</div>';
+  mrow.innerHTML=`
+    <div class="mhead">
+      <div class="mname-wrap">
+        <span class="mname" id="mname-${g}-${player.id}">${player.name}</span>
+        <input class="mname-input" id="rename-${g}-${player.id}" onkeydown="if(event.key==='Enter')window._saveRename(${g},'${player.id}')"/>
+      </div>
+      <span class="msub" id="msub-${g}-${player.id}">0/${DOCS_PER}</span>
+      <div class="mactions">
+        <button class="mbtn edit" id="editbtn-${g}-${player.id}" onclick="window._toggleEdit(${g},'${player.id}',true)">✏ Rename</button>
+        <button class="mbtn save" id="savebtn-${g}-${player.id}" onclick="window._saveRename(${g},'${player.id}')">✓ Save</button>
+        <button class="mbtn del" onclick="window._confirmRemove(${g},'${player.id}','${player.name.replace(/'/g,"\\'")}')">✕ Remove</button>
+      </div>
+    </div>
+    ${btns}
+    <div class="track" style="margin-top:5px"><div class="fill fill-player" id="mbar-${g}-${player.id}" style="width:0%"></div></div>
+  `;
+  if(addRow) mem.insertBefore(mrow, addRow);
+  else mem.appendChild(mrow);
+  // Restore doc state
+  const arr = localData.state[`${g}_${player.id}`] || [];
+  DOCS.forEach((_,d)=>{ const btn=document.getElementById(`btn-${g}-${player.id}-${d}`); if(btn) btn.classList.toggle('done',!!arr[d]); });
+  updateMemberBar(g, player.id);
+}
 
-function updateMemberBar(g,m){
-  const done=playerDone(g,m);
-  const el=document.getElementById(`mbar-${g}-${m}`);if(el)el.style.width=pct(done,DOCS_PER)+'%';
-  const sub=document.getElementById(`msub-${g}-${m}`);if(sub)sub.textContent=`${done}/${DOCS_PER}`;
+// ── Bar updates ──
+function playerDone(g, playerId){ return (localData.state[`${g}_${playerId}`]||[]).filter(Boolean).length; }
+function groupDone(g){ return (localData.pods[g]||[]).reduce((t,p)=>t+playerDone(g,p.id),0); }
+function totalDone(){ let t=0; for(let g=1;g<=NUM_PODS;g++) t+=groupDone(g); return t; }
+function totalPlayers(){ let t=0; for(let g=1;g<=NUM_PODS;g++) t+=(localData.pods[g]||[]).length; return t; }
+function totalMax(){ return totalPlayers()*DOCS_PER; }
+
+function updateMemberBar(g,playerId){
+  const done=playerDone(g,playerId), max=DOCS_PER;
+  const el=document.getElementById(`mbar-${g}-${playerId}`); if(el) el.style.width=pct(done,max)+'%';
+  const sub=document.getElementById(`msub-${g}-${playerId}`); if(sub) sub.textContent=`${done}/${max}`;
 }
 function updateGroupBar(g){
-  const done=groupDone(g),max=PODS[g].length*DOCS_PER;
-  const el=document.getElementById(`gbar-${g}`);if(el)el.style.width=pct(done,max)+'%';
-  const sub=document.getElementById(`gsub-${g}`);if(sub)sub.textContent=`${done}/${max} docs · ${pct(done,max)}%`;
+  const players=localData.pods[g]||[], max=players.length*DOCS_PER, done=groupDone(g);
+  const el=document.getElementById(`gbar-${g}`); if(el) el.style.width=pct(done,max)+'%';
+  const sub=document.getElementById(`gsub-${g}`); if(sub) sub.textContent=`${done}/${max} docs · ${pct(done,max)}%`;
 }
 function updateTotalBar(){
-  const done=totalDone();
-  document.getElementById('total-bar').style.width=pct(done,TOTAL_MAX)+'%';
-  document.getElementById('total-pct').textContent=pct(done,TOTAL_MAX)+'%';
-  document.getElementById('total-num').textContent=`${done} / ${TOTAL_MAX} documents · ${TOTAL_PLAYERS} players`;
+  const done=totalDone(), max=totalMax(), players=totalPlayers();
+  document.getElementById('total-bar').style.width=pct(done,max)+'%';
+  document.getElementById('total-pct').textContent=pct(done,max)+'%';
+  document.getElementById('total-num').textContent=`${done} / ${max} documents · ${players} players`;
 }
-function refreshAllBars(){for(let g=1;g<=NUM_PODS;g++){updateGroupBar(g);PODS[g].forEach((_,i)=>updateMemberBar(g,i+1));}updateTotalBar();}
+function refreshAllBars(){ for(let g=1;g<=NUM_PODS;g++){ updateGroupBar(g); (localData.pods[g]||[]).forEach(p=>updateMemberBar(g,p.id)); } updateTotalBar(); }
 function refreshAllButtons(){
-  for(let g=1;g<=NUM_PODS;g++)PODS[g].forEach((_,idx)=>{
-    const m=idx+1,arr=localState[key(g,m)]||[];
-    DOCS.forEach((_,d)=>{const btn=document.getElementById(`btn-${g}-${m}-${d}`);if(btn)btn.classList.toggle('done',!!arr[d]);});
+  for(let g=1;g<=NUM_PODS;g++) (localData.pods[g]||[]).forEach(p=>{
+    const arr=localData.state[`${g}_${p.id}`]||[];
+    DOCS.forEach((_,d)=>{ const btn=document.getElementById(`btn-${g}-${p.id}-${d}`); if(btn) btn.classList.toggle('done',!!arr[d]); });
+    updateMemberBar(g,p.id);
   });
 }
-window._toggle=toggleDoc;
 
-function openSetupModal(){
-  document.getElementById('setup-modal').classList.add('open');
-}
-document.getElementById('setup-save').addEventListener('click',async()=>{
-  document.getElementById('setup-modal').classList.remove('open');
-  await saveField('state',{});
-  renderUI();
-  showStatus('Ready to track ✓');
-});
+// ── Globals ──
+window._toggle        = toggleDoc;
+window._addPlayer     = addPlayer;
+window._saveRename    = saveRename;
+window._toggleEdit    = toggleEditMode;
+window._confirmRemove = confirmRemove;
 </script>
 </body>
 </html>
