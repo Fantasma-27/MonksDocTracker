@@ -660,7 +660,7 @@ function appendMemberRow(podId, player, container){
   const mrow=document.createElement('div'); mrow.className='mrow'; mrow.id=`mrow-${podId}-${player.id}`;
 
   let btns='<div class="doc-grid">';
-  DOCS.forEach((dname,d)=>{ btns+=`<button class="dbtn" id="btn-${podId}-${player.id}-${d}" onclick="window._toggle('${podId}','${player.id}',${d})" title="${dname}">${dname}</button>`; });
+  DOCS.forEach((dname,d)=>{ btns+=`<button class="dbtn" id="btn-${podId}-${player.id}-${d}" onclick="event.stopPropagation();window._toggle('${podId}','${player.id}',${d})" title="${dname}">${dname}</button>`; });
   btns+='</div>';
 
   let segs='<div class="player-bar-wrap">';
