@@ -300,7 +300,7 @@ import { getFirestore, doc, setDoc, onSnapshot, serverTimestamp } from "https://
 
 const DOCS = [
   "Passport Photo","National ID/BC","Player Profile","Code of Conduct",
-  "Rugby Ready","Laws of Game","First Aid","Concussion Mgmt","Keep Rugby Clean"
+  "Rugby Ready","Laws of Game","First Aid","Concussion Mgmt","Keep Rugby Clean", "Intro to Coaching","Intro to Officiating"
 ];
 const DOCS_PER = DOCS.length;
 
@@ -631,12 +631,12 @@ function appendPodCard(podId, podName, skipScroll=false){
   players.forEach(p=>appendMemberRow(podId,p,mem));
 
   const addRow=document.createElement('div'); addRow.className='add-player-row';
-  addRow.innerHTML=`<input id="add-input-${podId}" placeholder="Add player name…"/><button class="btn-add" onclick="window._addPlayer('${podId}')">+ Add</button>`;
+  addRow.innerHTML=`<input id="add-input-${podId}" placeholder="Add player name…"/><button class="btn-add" onclick="event.stopPropagation();window._addPlayer('${podId}')">+ Add</button>`;
   addRow.querySelector('input').addEventListener('keydown',e=>{ if(e.key==='Enter') window._addPlayer(podId); });
   mem.appendChild(addRow);
 
-  head.addEventListener('click',e=>{
-    if(e.target.closest('.gactions')||e.target.closest('.gtitle-input')) return;
+head.addEventListener('click',e=>{
+    if(e.target.closest('.gactions')||e.target.closest('.gtitle-input')||e.target.closest('.members')) return;
     const open=mem.classList.toggle('open');
     document.getElementById(`gchev-${podId}`).textContent=open?'˅':'›';
   });
