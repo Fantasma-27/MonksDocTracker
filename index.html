@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>DocTrack</title>
+<title>CUEA Monks Off Pitch RTP</title>
 <style>
   :root {
-    --bg: #0f1117;
-    --surface: #1a1d27;
-    --surface2: #222536;
-    --border: rgba(255,255,255,0.08);
-    --border2: rgba(255,255,255,0.14);
-    --text: #f0f1f5;
-    --muted: #8b8fa8;
-    --accent: #4f8ef7;
-    --accent2: #7c5ef7;
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --surface2: #1f1f1f;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #f0f0f0;
+    --muted: #888;
+    --red: #cc0000;
+    --red-dark: #990000;
+    --red-bg: rgba(204,0,0,0.12);
     --green: #2dce89;
     --green-bg: rgba(45,206,137,0.12);
     --radius: 10px;
@@ -22,108 +23,143 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; min-height: 100vh; }
-  #auth-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; gap: 24px; padding: 2rem; }
+
+  #auth-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; gap: 20px; padding: 2rem; }
+  .auth-logo-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .auth-logo { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--red); object-fit: cover; background: #fff; }
+  .auth-club { font-size: 11px; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; }
   .auth-box { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); padding: 2rem; width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 16px; }
-  .auth-title { font-size: 22px; font-weight: 600; }
-  .auth-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
-  .field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .auth-title { font-size: 20px; font-weight: 700; color: #fff; }
+  .auth-title span { color: var(--red); }
+  .auth-sub { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .field label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 6px; letter-spacing: .04em; text-transform: uppercase; }
   .field input { width: 100%; background: var(--bg); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 9px 12px; color: var(--text); font-size: 14px; outline: none; transition: border-color .2s; }
-  .field input:focus { border-color: var(--accent); }
-  .btn-primary { background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); padding: 10px 18px; font-size: 14px; font-weight: 500; cursor: pointer; transition: opacity .2s; width: 100%; }
-  .btn-primary:hover { opacity: .88; }
-  .auth-err { font-size: 12px; color: #fc6b6b; display: none; }
+  .field input:focus { border-color: var(--red); }
+  .btn-primary { background: var(--red); color: #fff; border: none; border-radius: var(--radius-sm); padding: 11px 18px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background .2s; width: 100%; }
+  .btn-primary:hover { background: var(--red-dark); }
+  .auth-err { font-size: 12px; color: #ff6b6b; display: none; }
+
   #app { display: none; flex-direction: column; min-height: 100vh; }
-  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 1.5rem; height: 56px; display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 10; }
-  .logo { font-size: 16px; font-weight: 600; flex: 1; }
-  .logo span { color: var(--accent); }
-  .user-chip { font-size: 12px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); border-radius: 99px; padding: 4px 12px; display: flex; align-items: center; gap: 6px; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
-  .btn-logout { background: none; border: 1px solid var(--border2); color: var(--muted); border-radius: var(--radius-sm); padding: 5px 12px; cursor: pointer; font-size: 12px; }
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 1.5rem; height: 54px; display: flex; align-items: center; gap: 10px; position: sticky; top: 0; z-index: 10; }
+  .header-logo { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--red); background: #fff; }
+  .logo { font-size: 14px; font-weight: 700; flex: 1; color: #fff; }
+  .logo span { color: var(--red); }
+  .user-chip { font-size: 11px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); border-radius: 99px; padding: 4px 10px; display: flex; align-items: center; gap: 6px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+  .btn-logout { background: none; border: 1px solid var(--border2); color: var(--muted); border-radius: var(--radius-sm); padding: 5px 10px; cursor: pointer; font-size: 11px; }
   .btn-logout:hover { color: var(--text); }
-  main { padding: 1.5rem; max-width: 900px; margin: 0 auto; width: 100%; }
-  .overall { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
-  .overall-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
-  .overall-label { font-size: 13px; color: var(--muted); }
-  .overall-nums { font-size: 22px; font-weight: 600; }
-  .overall-pct { font-size: 13px; color: var(--muted); }
-  .track { height: 8px; background: var(--surface2); border-radius: 99px; overflow: hidden; }
+
+  main { padding: 1.5rem; max-width: 960px; margin: 0 auto; width: 100%; }
+
+  .overall { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--red); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+  .overall-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .overall-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+  .overall-pct { font-size: 13px; color: var(--red); font-weight: 600; }
+  .overall-nums { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+  .track { height: 6px; background: var(--surface2); border-radius: 99px; overflow: hidden; }
   .fill { height: 100%; border-radius: 99px; transition: width .4s ease; }
-  .fill-g { background: linear-gradient(90deg, var(--accent), var(--accent2)); }
-  .fill-group { background: var(--accent); }
-  .fill-player { background: var(--accent2); }
-  .groups { display: flex; flex-direction: column; gap: 10px; }
+  .fill-g { background: linear-gradient(90deg, var(--red-dark), var(--red), #ff4444); }
+  .fill-group { background: var(--red); }
+  .fill-player { background: #666; }
+
+  .groups { display: flex; flex-direction: column; gap: 8px; }
   .gcard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-  .ghead { padding: .9rem 1.1rem; display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; transition: background .15s; }
+  .gcard:hover { border-color: var(--border2); }
+  .ghead { padding: .85rem 1.1rem; display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; transition: background .15s; }
   .ghead:hover { background: var(--surface2); }
-  .gnum { width: 28px; height: 28px; border-radius: 6px; background: var(--surface2); border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; color: var(--accent); }
-  .gtitle { flex: 1; font-size: 14px; font-weight: 500; }
-  .gsub { font-size: 12px; color: var(--muted); }
-  .gchev { font-size: 18px; color: var(--muted); transition: transform .2s; }
-  .gbar-wrap { padding: 0 1.1rem .75rem; }
-  .members { border-top: 1px solid var(--border); padding: 1rem 1.1rem; display: none; flex-direction: column; gap: 14px; }
+  .gnum { width: 26px; height: 26px; border-radius: 5px; background: var(--red-bg); border: 1px solid rgba(204,0,0,.3); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; color: var(--red); }
+  .gtitle { flex: 1; font-size: 13px; font-weight: 600; color: #fff; }
+  .gsub { font-size: 11px; color: var(--muted); }
+  .gchev { font-size: 16px; color: var(--muted); transition: transform .2s; min-width: 16px; text-align: center; }
+  .gbar-wrap { padding: 0 1.1rem .7rem; }
+
+  .members { border-top: 1px solid var(--border); padding: .9rem 1.1rem; display: none; flex-direction: column; gap: 14px; }
   .members.open { display: flex; }
+
+  .mrow { padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .mrow:last-child { border-bottom: none; padding-bottom: 0; }
   .mhead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-  .mname { font-size: 13px; font-weight: 500; }
-  .msub { font-size: 11px; color: var(--muted); }
-  .doc-grid { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 6px; }
-  .dbtn { flex: 0 0 auto; padding: 4px 8px; font-size: 11px; background: var(--surface2); border: 1px solid var(--border2); border-radius: var(--radius-sm); color: var(--muted); cursor: pointer; transition: background .15s, color .15s, border-color .15s; white-space: nowrap; }
-  .dbtn.done { background: var(--green-bg); border-color: rgba(45,206,137,.35); color: var(--green); }
-  .dbtn:hover:not(.done) { border-color: var(--accent); color: var(--accent); }
-  #status-bar { position: fixed; bottom: 1rem; right: 1rem; background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 8px 14px; font-size: 12px; color: var(--muted); display: none; }
-  #setup-modal { position: fixed; inset: 0; background: rgba(0,0,0,.7); display: none; align-items: center; justify-content: center; z-index: 50; padding: 1rem; }
+  .mname { font-size: 12px; font-weight: 600; color: #fff; }
+  .msub { font-size: 10px; color: var(--muted); }
+  .doc-grid { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 7px; }
+  .dbtn { flex: 0 0 auto; padding: 4px 7px; font-size: 10px; background: var(--surface2); border: 1px solid var(--border2); border-radius: var(--radius-sm); color: var(--muted); cursor: pointer; transition: all .15s; white-space: nowrap; font-weight: 500; }
+  .dbtn.done { background: var(--green-bg); border-color: rgba(45,206,137,.3); color: var(--green); }
+  .dbtn:hover:not(.done) { border-color: var(--red); color: var(--red); }
+
+  #status-bar { position: fixed; bottom: 1rem; right: 1rem; background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 8px 14px; font-size: 12px; color: var(--muted); display: none; transition: opacity .3s; }
+
+  #setup-modal { position: fixed; inset: 0; background: rgba(0,0,0,.8); display: none; align-items: center; justify-content: center; z-index: 50; padding: 1rem; }
   #setup-modal.open { display: flex; }
   .modal-box { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); padding: 1.5rem; width: 100%; max-width: 480px; max-height: 85vh; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
-  .modal-title { font-size: 18px; font-weight: 600; }
-  .modal-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
-  .names-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .modal-box .field input { font-size: 13px; }
+  .modal-title { font-size: 17px; font-weight: 700; color: #fff; }
+  .modal-sub { font-size: 12px; color: var(--muted); line-height: 1.6; }
   .btn-row { display: flex; gap: 8px; }
   .btn-secondary { background: var(--surface2); color: var(--muted); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 9px 16px; font-size: 13px; cursor: pointer; flex: 1; }
   .btn-secondary:hover { color: var(--text); }
   .btn-primary.sm { font-size: 13px; padding: 9px 16px; flex: 1; width: auto; }
-  #loading { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 100; font-size: 14px; color: var(--muted); }
-  @media(max-width:600px){ main { padding: 1rem; } .names-grid { grid-template-columns: 1fr; } header { padding: 0 1rem; } }
+
+  #loading { position: fixed; inset: 0; background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; gap: 16px; }
+  .loading-logo { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--red); object-fit: cover; background: #fff; animation: pulse 1.5s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+  .loading-text { font-size: 13px; color: var(--muted); }
+
+  @media(max-width:600px){ main{padding:1rem;} header{padding:0 1rem;} }
 </style>
 </head>
 <body>
-<div id="loading">Connecting…</div>
+
+<div id="loading">
+  <img class="loading-logo" src="monks-logo.png" onerror="this.style.display='none'" alt="Monks"/>
+  <div class="loading-text">Connecting…</div>
+</div>
+
 <div id="auth-screen" style="display:none">
+  <div class="auth-logo-wrap">
+    <img class="auth-logo" src="monks-logo.png" onerror="this.style.background='#cc0000'" alt="CUEA Monks RC"/>
+    <div class="auth-club">CUEA Monks Rugby Club</div>
+  </div>
   <div class="auth-box">
-    <div class="auth-title">Doc<span style="color:var(--accent)">Track</span></div>
-    <div class="auth-sub">Sign in with your admin credentials.</div>
-    <div class="field"><label>Email</label><input id="auth-email" type="email" placeholder="you@example.com"/></div>
-    <div class="field"><label>Password</label><input id="auth-pass" type="password" placeholder="••••••••"/></div>
+    <div class="auth-title">Off Pitch <span>RTP</span></div>
+    <div class="auth-sub">Admin access only. Sign in to view and update document submissions.</div>
+    <div class="field"><label>Email</label><input id="auth-email" type="email" placeholder="admin@example.com" autocomplete="username"/></div>
+    <div class="field"><label>Password</label><input id="auth-pass" type="password" placeholder="••••••••" autocomplete="current-password"/></div>
     <div class="auth-err" id="auth-err"></div>
     <button class="btn-primary" id="btn-signin">Sign in</button>
   </div>
 </div>
+
 <div id="app">
   <header>
-    <div class="logo">Doc<span>Track</span></div>
+    <img class="header-logo" src="monks-logo.png" onerror="this.style.display='none'" alt=""/>
+    <div class="logo">CUEA Monks <span>Off Pitch RTP</span></div>
     <div class="user-chip"><div class="dot"></div><span id="user-label">—</span></div>
     <button class="btn-logout" id="btn-logout">Sign out</button>
   </header>
   <main>
     <div class="overall">
-      <div class="overall-row"><span class="overall-label">Overall progress</span><span class="overall-pct" id="total-pct">0%</span></div>
+      <div class="overall-row">
+        <span class="overall-label">Overall progress</span>
+        <span class="overall-pct" id="total-pct">0%</span>
+      </div>
       <div class="overall-nums" id="total-num">0 / 0 documents</div>
-      <div style="margin-top:10px" class="track"><div class="fill fill-g" id="total-bar" style="width:0%"></div></div>
+      <div class="track"><div class="fill fill-g" id="total-bar" style="width:0%"></div></div>
     </div>
     <div class="groups" id="groups-container"></div>
   </main>
 </div>
+
 <div id="setup-modal">
   <div class="modal-box">
-    <div class="modal-title">Set up your groups</div>
-    <div class="modal-sub">Enter names for each group and member. You can update these any time.</div>
-    <div id="setup-fields"></div>
-vim index.html    <div class="btn-row">
-      <button class="btn-secondary" id="setup-cancel">Cancel</button>
-      <button class="btn-primary sm" id="setup-save">Save & start</button>
+    <div class="modal-title">Player data loaded</div>
+    <div class="modal-sub">All pod names and player names have been pre-loaded. Click Start to begin tracking.</div>
+    <div class="btn-row">
+      <button class="btn-primary sm" id="setup-save">Start tracking</button>
     </div>
   </div>
 </div>
+
 <div id="status-bar"></div>
+
 <script>
 const firebaseConfig = {
   apiKey: "AIzaSyCFwXa_E7chRYrGqLql25VT1_chvUwUfek",
@@ -134,23 +170,63 @@ const firebaseConfig = {
   appId: "1:726102792209:web:44b352954806f342deb9b0"
 };
 </script>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const NUM_GROUPS=11, MEMBERS_PER=7, DOCS=['Cert 1','Cert 2','Cert 3','Cert 4','Cert 5','Photo','ID','Form'], DOCS_PER=8, TOTAL_MAX=NUM_GROUPS*MEMBERS_PER*DOCS_PER;
-const app=initializeApp(firebaseConfig);
-const auth=getAuth(app), db=getFirestore(app);
-let localState={}, localNames={}, unsubscribe=null;
+// ── Player data ──────────────────────────────────
+const PODS = {
+  1: ["John Isalambo (C)","Caleb Kiprotich","Simon Jawichre","Camille Marlyn","Gabriel Ogweno","Stephen Mankone","Kevin Komen"],
+  2: ["Wambani Osundwa (C)","Jeremy Odhiambo","Meshack Opagala","Brian Nyamboki","Arnold Keya","Emmanuel Adoyo","Peter Naman"],
+  3: ["Meshack Ongechi (C)","Morgan Ngumbi","Loui Ramone","Jerry Olem","John Ochido","Hopefaustin Tokali"],
+  4: ["Zephenes Obwanga (C)","Wyclife Ayieko","Patrick Vieri","Livingstone O.","Joshua Ongeri","Reagan Morgan","Eugene Odhiambo"],
+  5: ["Burungo Nyanja (C)","Noah Otieno","Timothy Ochieng","Ezekiel Apida","Teddy Owino","Jakinda Roy","Shem Kisiara"],
+  6: ["Felix Okumu (C)","Kwame Walgwe","Isaac Kubasu","Feishal Ochieng","Elly Okomo","Malova Graham"],
+  7: ["Kevin Mburu (C)","Delton Mwinami","Philip Walukana","Kevin Mbogo","Eliud Ondieki","Max Barasa","Ephy King'uku"],
+  8: ["Isaac Maundu (C)","Peter Ondicho","Nyongesa Wekesa","Elias Owino","Samuel Owino","Duke Monda","Denzel Kipkorir"],
+  9: ["Joseph Omondi (C)","Terry Okumu","Ian Bakari","Alvin Ogutu","Dennis Mulinge","Tim Trevor"],
+  10: ["Michael Owen (C)","Cornish Mose","Davian Nabiswa","Wayne Rooney","Jonathan Bravo","Amos Omariba"],
+  11: ["Felix Omondi (C)","Alvin Otieno","Elly Ojwang","Harlequin Abraham","Victor Rheins","Victor Omupere"]
+};
 
-function key(g,m){return `${g}_${m}`;}
+const DOCS = [
+  "Passport Photo",
+  "National ID/BC",
+  "Player Profile",
+  "Code of Conduct",
+  "Rugby Ready",
+  "Laws of Game",
+  "First Aid",
+  "Concussion Mgmt",
+  "Keep Rugby Clean"
+];
+
+const DOCS_PER = DOCS.length; // 9
+const NUM_PODS = 11;
+const TOTAL_PLAYERS = Object.values(PODS).reduce((s,m)=>s+m.length,0); // 72
+const TOTAL_MAX = TOTAL_PLAYERS * DOCS_PER;
+
+function defaultNames(){
+  const n={};
+  for(let g=1;g<=NUM_PODS;g++){
+    n[`group_${g}`]=`Pod ${g}`;
+    PODS[g].forEach((name,i)=>{ n[`member_${g}_${i+1}`]=name; });
+  }
+  return n;
+}
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app),db=getFirestore(app);
+let localState={},localNames=defaultNames(),unsubscribe=null;
+
+function key(g,m){return`${g}_${m}`;}
 function pct(a,b){return b===0?0:Math.round(a/b*100);}
 function showStatus(msg,ms=1800){const b=document.getElementById('status-bar');b.textContent=msg;b.style.display='block';b.style.opacity='1';setTimeout(()=>{b.style.opacity='0';setTimeout(()=>b.style.display='none',300);},ms);}
-function defaultNames(){const n={};for(let g=1;g<=NUM_GROUPS;g++){n[`group_${g}`]=`Group ${g}`;for(let m=1;m<=MEMBERS_PER;m++)n[`member_${g}_${m}`]=`Member ${m}`;}return n;}
 
 document.getElementById('btn-signin').addEventListener('click',async()=>{
-  const email=document.getElementById('auth-email').value.trim(), pass=document.getElementById('auth-pass').value, err=document.getElementById('auth-err');
+  const email=document.getElementById('auth-email').value.trim(),pass=document.getElementById('auth-pass').value,err=document.getElementById('auth-err');
   err.style.display='none';
   try{await signInWithEmailAndPassword(auth,email,pass);}
   catch(e){err.textContent='Incorrect email or password.';err.style.display='block';}
@@ -175,12 +251,18 @@ onAuthStateChanged(auth,user=>{
 function startListening(){
   const ref=doc(db,'tracker','main');
   unsubscribe=onSnapshot(ref,snap=>{
-    if(!snap.exists()){localNames=defaultNames();renderUI();openSetupModal();}
-    else{const d=snap.data();localState=d.state||{};localNames=d.names||defaultNames();renderUI();}
+    if(!snap.exists()){
+      openSetupModal();
+    } else {
+      const d=snap.data();
+      localState=d.state||{};
+      // always use built-in names
+      renderUI();
+    }
   });
 }
 
-async function saveDoc(field,value){
+async function saveField(field,value){
   await setDoc(doc(db,'tracker','main'),{[field]:value,updatedAt:serverTimestamp()},{merge:true});
 }
 
@@ -192,7 +274,7 @@ async function toggleDoc(g,m,d){
   const btn=document.getElementById(`btn-${g}-${m}-${d}`);
   if(btn)btn.classList.toggle('done',val);
   updateMemberBar(g,m);updateGroupBar(g);updateTotalBar();
-  try{await saveDoc('state',localState);showStatus(val?'✓ Saved':'Unmarked');}
+  try{await saveField('state',localState);showStatus(val?'✓ Saved':'Unmarked');}
   catch(e){localState[k][d]=!val;document.getElementById(`btn-${g}-${m}-${d}`)?.classList.toggle('done',!val);showStatus('⚠ Save failed',3000);}
 }
 
@@ -200,27 +282,36 @@ function renderUI(){
   updateTotalBar();
   const cont=document.getElementById('groups-container');
   if(cont.children.length===0)buildGroupCards();
-  else{refreshAllBars();refreshAllButtons();refreshAllNames();}
+  else{refreshAllBars();refreshAllButtons();}
 }
 
 function buildGroupCards(){
   const cont=document.getElementById('groups-container');cont.innerHTML='';
-  for(let g=1;g<=NUM_GROUPS;g++){
+  for(let g=1;g<=NUM_PODS;g++){
+    const members=PODS[g];
+    const podMax=members.length*DOCS_PER;
     const card=document.createElement('div');card.className='gcard';
     const head=document.createElement('div');head.className='ghead';
-    head.innerHTML=`<div class="gnum">${g}</div><div style="flex:1"><div class="gtitle" id="gname-${g}">${localNames[`group_${g}`]||`Group ${g}`}</div><div class="gsub" id="gsub-${g}">0/${MEMBERS_PER*DOCS_PER} docs · 0%</div></div><span class="gchev" id="gchev-${g}">›</span>`;
+    head.innerHTML=`<div class="gnum">${g}</div><div style="flex:1"><div class="gtitle">Pod ${g}</div><div class="gsub" id="gsub-${g}">0/${podMax} docs · 0%</div></div><span class="gchev" id="gchev-${g}">›</span>`;
     const barWrap=document.createElement('div');barWrap.className='gbar-wrap';
     barWrap.innerHTML=`<div class="track"><div class="fill fill-group" id="gbar-${g}" style="width:0%"></div></div>`;
     const mem=document.createElement('div');mem.className='members';mem.id=`mem-${g}`;
-    for(let m=1;m<=MEMBERS_PER;m++){
+
+    members.forEach((name,idx)=>{
+      const m=idx+1;
       const mrow=document.createElement('div');mrow.className='mrow';
       let btns='<div class="doc-grid">';
-      DOCS.forEach((name,d)=>{btns+=`<button class="dbtn" id="btn-${g}-${m}-${d}" onclick="window._toggle(${g},${m},${d})">${name}</button>`;});
+      DOCS.forEach((dname,d)=>{btns+=`<button class="dbtn" id="btn-${g}-${m}-${d}" onclick="window._toggle(${g},${m},${d})" title="${dname}">${dname}</button>`;});
       btns+='</div>';
-      mrow.innerHTML=`<div class="mhead"><span class="mname" id="mname-${g}-${m}">${localNames[`member_${g}_${m}`]||`Member ${m}`}</span><span class="msub" id="msub-${g}-${m}">0/${DOCS_PER}</span></div>${btns}<div class="track" style="margin-top:4px"><div class="fill fill-player" id="mbar-${g}-${m}" style="width:0%"></div></div>`;
+      mrow.innerHTML=`<div class="mhead"><span class="mname">${name}</span><span class="msub" id="msub-${g}-${m}">0/${DOCS_PER}</span></div>${btns}<div class="track" style="margin-top:5px"><div class="fill fill-player" id="mbar-${g}-${m}" style="width:0%"></div></div>`;
       mem.appendChild(mrow);
-    }
-    head.addEventListener('click',()=>{const open=mem.classList.toggle('open');document.getElementById(`gchev-${g}`).textContent=open?'˅':'›';});
+    });
+
+    head.addEventListener('click',()=>{
+      const open=mem.classList.toggle('open');
+      const chev=document.getElementById(`gchev-${g}`);
+      chev.textContent=open?'˅':'›';
+    });
     card.appendChild(head);card.appendChild(barWrap);card.appendChild(mem);
     cont.appendChild(card);
   }
@@ -228,33 +319,42 @@ function buildGroupCards(){
 }
 
 function playerDone(g,m){return(localState[key(g,m)]||[]).filter(Boolean).length;}
-function groupDone(g){let t=0;for(let m=1;m<=MEMBERS_PER;m++)t+=playerDone(g,m);return t;}
-function totalDone(){let t=0;for(let g=1;g<=NUM_GROUPS;g++)t+=groupDone(g);return t;}
-function updateMemberBar(g,m){const done=playerDone(g,m);const el=document.getElementById(`mbar-${g}-${m}`);if(el)el.style.width=pct(done,DOCS_PER)+'%';const sub=document.getElementById(`msub-${g}-${m}`);if(sub)sub.textContent=`${done}/${DOCS_PER}`;}
-function updateGroupBar(g){const done=groupDone(g),max=MEMBERS_PER*DOCS_PER;const el=document.getElementById(`gbar-${g}`);if(el)el.style.width=pct(done,max)+'%';const sub=document.getElementById(`gsub-${g}`);if(sub)sub.textContent=`${done}/${max} docs · ${pct(done,max)}%`;}
-function updateTotalBar(){const done=totalDone();document.getElementById('total-bar').style.width=pct(done,TOTAL_MAX)+'%';document.getElementById('total-pct').textContent=pct(done,TOTAL_MAX)+'%';document.getElementById('total-num').textContent=`${done} / ${TOTAL_MAX} documents`;}
-function refreshAllBars(){for(let g=1;g<=NUM_GROUPS;g++){updateGroupBar(g);for(let m=1;m<=MEMBERS_PER;m++)updateMemberBar(g,m);}updateTotalBar();}
-function refreshAllButtons(){for(let g=1;g<=NUM_GROUPS;g++)for(let m=1;m<=MEMBERS_PER;m++){const arr=localState[key(g,m)]||[];DOCS.forEach((_,d)=>{const btn=document.getElementById(`btn-${g}-${m}-${d}`);if(btn)btn.classList.toggle('done',!!arr[d]);});}}
-function refreshAllNames(){for(let g=1;g<=NUM_GROUPS;g++){const gn=document.getElementById(`gname-${g}`);if(gn)gn.textContent=localNames[`group_${g}`]||`Group ${g}`;for(let m=1;m<=MEMBERS_PER;m++){const mn=document.getElementById(`mname-${g}-${m}`);if(mn)mn.textContent=localNames[`member_${g}_${m}`]||`Member ${m}`;}}}
+function groupDone(g){let t=0;PODS[g].forEach((_,i)=>t+=playerDone(g,i+1));return t;}
+function totalDone(){let t=0;for(let g=1;g<=NUM_PODS;g++)t+=groupDone(g);return t;}
+
+function updateMemberBar(g,m){
+  const done=playerDone(g,m);
+  const el=document.getElementById(`mbar-${g}-${m}`);if(el)el.style.width=pct(done,DOCS_PER)+'%';
+  const sub=document.getElementById(`msub-${g}-${m}`);if(sub)sub.textContent=`${done}/${DOCS_PER}`;
+}
+function updateGroupBar(g){
+  const done=groupDone(g),max=PODS[g].length*DOCS_PER;
+  const el=document.getElementById(`gbar-${g}`);if(el)el.style.width=pct(done,max)+'%';
+  const sub=document.getElementById(`gsub-${g}`);if(sub)sub.textContent=`${done}/${max} docs · ${pct(done,max)}%`;
+}
+function updateTotalBar(){
+  const done=totalDone();
+  document.getElementById('total-bar').style.width=pct(done,TOTAL_MAX)+'%';
+  document.getElementById('total-pct').textContent=pct(done,TOTAL_MAX)+'%';
+  document.getElementById('total-num').textContent=`${done} / ${TOTAL_MAX} documents · ${TOTAL_PLAYERS} players`;
+}
+function refreshAllBars(){for(let g=1;g<=NUM_PODS;g++){updateGroupBar(g);PODS[g].forEach((_,i)=>updateMemberBar(g,i+1));}updateTotalBar();}
+function refreshAllButtons(){
+  for(let g=1;g<=NUM_PODS;g++)PODS[g].forEach((_,idx)=>{
+    const m=idx+1,arr=localState[key(g,m)]||[];
+    DOCS.forEach((_,d)=>{const btn=document.getElementById(`btn-${g}-${m}-${d}`);if(btn)btn.classList.toggle('done',!!arr[d]);});
+  });
+}
 window._toggle=toggleDoc;
 
 function openSetupModal(){
-  const fields=document.getElementById('setup-fields');fields.innerHTML='';
-  for(let g=1;g<=NUM_GROUPS;g++){
-    const sec=document.createElement('div');sec.style.cssText='margin-bottom:14px';
-    sec.innerHTML=`<div class="field" style="margin-bottom:8px"><label>Group ${g} name</label><input id="sn-g-${g}" value="${localNames[`group_${g}`]||`Group ${g}`}"/></div>`;
-    const grid=document.createElement('div');grid.className='names-grid';
-    for(let m=1;m<=MEMBERS_PER;m++)grid.innerHTML+=`<div class="field"><label>Member ${m}</label><input id="sn-m-${g}-${m}" value="${localNames[`member_${g}_${m}`]||`Member ${m}`}"/></div>`;
-    sec.appendChild(grid);fields.appendChild(sec);
-  }
   document.getElementById('setup-modal').classList.add('open');
 }
-document.getElementById('setup-cancel').addEventListener('click',()=>document.getElementById('setup-modal').classList.remove('open'));
 document.getElementById('setup-save').addEventListener('click',async()=>{
-  const n={};
-  for(let g=1;g<=NUM_GROUPS;g++){n[`group_${g}`]=document.getElementById(`sn-g-${g}`).value.trim()||`Group ${g}`;for(let m=1;m<=MEMBERS_PER;m++)n[`member_${g}_${m}`]=document.getElementById(`sn-m-${g}-${m}`).value.trim()||`Member ${m}`;}
-  localNames=n;document.getElementById('setup-modal').classList.remove('open');refreshAllNames();
-  await saveDoc('names',n);showStatus('Names saved ✓');
+  document.getElementById('setup-modal').classList.remove('open');
+  await saveField('state',{});
+  renderUI();
+  showStatus('Ready to track ✓');
 });
 </script>
 </body>
