@@ -12,7 +12,7 @@
     --border: rgba(255,255,255,0.07);
     --border2: rgba(255,255,255,0.13);
     --text: #f0f0f0;
-    --muted: #888;
+    --muted: #666;
     --red: #cc0000;
     --red-dark: #990000;
     --red-bg: rgba(204,0,0,0.12);
@@ -25,111 +25,152 @@
   body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; min-height: 100vh; }
 
   /* Auth */
-  #auth-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; gap: 20px; padding: 2rem; }
-  .auth-logo-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-  .auth-logo { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--red); object-fit: cover; background: #fff; }
-  .auth-club { font-size: 11px; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; }
-  .auth-box { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); padding: 2rem; width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 16px; }
-  .auth-title { font-size: 20px; font-weight: 700; color: #fff; }
-  .auth-title span { color: var(--red); }
-  .auth-sub { font-size: 12px; color: var(--muted); line-height: 1.6; }
-  .field label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 6px; letter-spacing: .04em; text-transform: uppercase; }
-  .field input { width: 100%; background: var(--bg); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 9px 12px; color: var(--text); font-size: 14px; outline: none; transition: border-color .2s; }
-  .field input:focus { border-color: var(--red); }
-  .btn-primary { background: var(--red); color: #fff; border: none; border-radius: var(--radius-sm); padding: 11px 18px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background .2s; width: 100%; }
-  .btn-primary:hover { background: var(--red-dark); }
-  .auth-err { font-size: 12px; color: #ff6b6b; display: none; }
+  #auth-screen { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; gap:20px; padding:2rem; }
+  .auth-logo-wrap { display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .auth-logo { width:110px; height:110px; border-radius:50%; border:3px solid var(--red); object-fit:cover; background:#fff; }
+  .auth-club { font-size:11px; letter-spacing:.15em; color:var(--muted); text-transform:uppercase; }
+  .auth-box { background:var(--surface); border:1px solid var(--border2); border-radius:var(--radius); padding:2rem; width:100%; max-width:360px; display:flex; flex-direction:column; gap:16px; }
+  .auth-title { font-size:20px; font-weight:700; color:#fff; }
+  .auth-title span { color:var(--red); }
+  .auth-sub { font-size:12px; color:var(--muted); line-height:1.6; }
+  .field label { display:block; font-size:11px; color:var(--muted); margin-bottom:6px; letter-spacing:.04em; text-transform:uppercase; }
+  .field input { width:100%; background:var(--bg); border:1px solid var(--border2); border-radius:var(--radius-sm); padding:9px 12px; color:var(--text); font-size:14px; outline:none; transition:border-color .2s; }
+  .field input:focus { border-color:var(--red); }
+  .btn-primary { background:var(--red); color:#fff; border:none; border-radius:var(--radius-sm); padding:11px 18px; font-size:14px; font-weight:600; cursor:pointer; transition:background .2s; width:100%; }
+  .btn-primary:hover { background:var(--red-dark); }
+  .auth-err { font-size:12px; color:#ff6b6b; display:none; }
 
   /* App */
-  #app { display: none; flex-direction: column; min-height: 100vh; }
-  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 1.5rem; height: 54px; display: flex; align-items: center; gap: 10px; position: sticky; top: 0; z-index: 10; }
-  .header-logo { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--red); background: #fff; }
-  .logo { font-size: 14px; font-weight: 700; flex: 1; color: #fff; }
-  .logo span { color: var(--red); }
-  .user-chip { font-size: 11px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); border-radius: 99px; padding: 4px 10px; display: flex; align-items: center; gap: 6px; }
-  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
-  .btn-logout { background: none; border: 1px solid var(--border2); color: var(--muted); border-radius: var(--radius-sm); padding: 5px 10px; cursor: pointer; font-size: 11px; }
-  .btn-logout:hover { color: var(--text); }
+  #app { display:none; flex-direction:column; min-height:100vh; }
+  header { background:var(--surface); border-bottom:1px solid var(--border); padding:0 1.5rem; height:54px; display:flex; align-items:center; gap:10px; position:sticky; top:0; z-index:10; }
+  .header-logo { width:32px; height:32px; border-radius:50%; object-fit:cover; border:1px solid var(--red); background:#fff; }
+  .logo { font-size:14px; font-weight:700; flex:1; color:#fff; }
+  .logo span { color:var(--red); }
+  .user-chip { font-size:11px; color:var(--muted); background:var(--surface2); border:1px solid var(--border); border-radius:99px; padding:4px 10px; display:flex; align-items:center; gap:6px; }
+  .dot { width:6px; height:6px; border-radius:50%; background:var(--green); flex-shrink:0; }
+  .btn-logout { background:none; border:1px solid var(--border2); color:var(--muted); border-radius:var(--radius-sm); padding:5px 10px; cursor:pointer; font-size:11px; }
+  .btn-logout:hover { color:var(--text); }
 
-  main { padding: 1.5rem; max-width: 960px; margin: 0 auto; width: 100%; }
+  main { padding:1.5rem; max-width:960px; margin:0 auto; width:100%; }
 
-  /* Overall */
-  .overall { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--red); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
-  .overall-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-  .overall-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
-  .overall-pct { font-size: 13px; color: var(--red); font-weight: 600; }
-  .overall-nums { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 12px; }
-  .track { height: 6px; background: var(--surface2); border-radius: 99px; overflow: hidden; }
-  .fill { height: 100%; border-radius: 99px; transition: width .4s ease; }
-  .fill-g { background: linear-gradient(90deg, var(--red-dark), var(--red), #ff4444); }
-  .fill-group { background: var(--red); }
-  .fill-player { background: #666; }
+  /* Rugby ball overall */
+  .overall { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; margin-bottom:1.5rem; display:flex; gap:2rem; align-items:center; flex-wrap:wrap; }
+  .ball-wrap { display:flex; flex-direction:column; align-items:center; gap:8px; flex-shrink:0; }
+  .ball-label { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+  .ball-svg { width:100px; height:68px; }
+  .overall-stats { flex:1; min-width:180px; display:flex; flex-direction:column; gap:10px; }
+  .overall-title { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+  .overall-big { font-size:26px; font-weight:700; color:#fff; line-height:1; }
+  .overall-sub { font-size:12px; color:var(--muted); }
+  .stat-row { display:flex; gap:1rem; flex-wrap:wrap; margin-top:4px; }
+  .stat { background:var(--surface2); border-radius:var(--radius-sm); padding:8px 14px; text-align:center; }
+  .stat-num { font-size:18px; font-weight:700; color:var(--red); }
+  .stat-lbl { font-size:10px; color:var(--muted); margin-top:2px; }
+
+  /* Search */
+  .search-wrap { position:relative; margin-bottom:1rem; }
+  .search-wrap input { width:100%; background:var(--surface); border:1px solid var(--border2); border-radius:var(--radius-sm); padding:10px 14px 10px 38px; color:var(--text); font-size:13px; outline:none; transition:border-color .2s; }
+  .search-wrap input:focus { border-color:var(--red); }
+  .search-wrap input::placeholder { color:var(--muted); }
+  .search-icon { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--muted); font-size:14px; pointer-events:none; }
+  #search-results { display:none; background:var(--surface); border:1px solid var(--border2); border-radius:var(--radius-sm); margin-top:4px; overflow:hidden; }
+  .search-result-item { padding:10px 14px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); cursor:pointer; transition:background .15s; }
+  .search-result-item:last-child { border-bottom:none; }
+  .search-result-item:hover { background:var(--surface2); }
+  .sri-name { font-size:13px; font-weight:500; color:#fff; }
+  .sri-pod { font-size:11px; color:var(--muted); }
+  .sri-prog { font-size:11px; color:var(--red); font-weight:600; }
+  .no-results { padding:12px 14px; font-size:13px; color:var(--muted); }
+
+  /* Toolbar */
+  .toolbar { display:flex; gap:8px; margin-bottom:1rem; align-items:center; flex-wrap:wrap; }
+  .toolbar-title { font-size:13px; font-weight:600; color:var(--muted); flex:1; }
+  .btn-add-pod { background:var(--red-bg); border:1px solid rgba(204,0,0,.3); color:var(--red); border-radius:var(--radius-sm); padding:8px 14px; font-size:12px; font-weight:600; cursor:pointer; transition:background .15s; white-space:nowrap; }
+  .btn-add-pod:hover { background:rgba(204,0,0,.2); }
 
   /* Groups */
-  .groups { display: flex; flex-direction: column; gap: 8px; }
-  .gcard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-  .gcard:hover { border-color: var(--border2); }
-  .ghead { padding: .85rem 1.1rem; display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; transition: background .15s; }
-  .ghead:hover { background: var(--surface2); }
-  .gnum { width: 26px; height: 26px; border-radius: 5px; background: var(--red-bg); border: 1px solid rgba(204,0,0,.3); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; color: var(--red); }
-  .gtitle { flex: 1; font-size: 13px; font-weight: 600; color: #fff; }
-  .gsub { font-size: 11px; color: var(--muted); }
-  .gchev { font-size: 16px; color: var(--muted); min-width: 16px; text-align: center; }
-  .gbar-wrap { padding: 0 1.1rem .7rem; }
+  .groups { display:flex; flex-direction:column; gap:8px; }
+  .gcard { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+  .gcard:hover { border-color:var(--border2); }
+  .ghead { padding:.85rem 1.1rem; display:flex; align-items:center; gap:10px; cursor:pointer; user-select:none; transition:background .15s; }
+  .ghead:hover { background:var(--surface2); }
+  .gnum { width:26px; height:26px; border-radius:5px; background:var(--red-bg); border:1px solid rgba(204,0,0,.3); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; color:var(--red); }
+  .gtitle-wrap { flex:1; }
+  .gtitle { font-size:13px; font-weight:600; color:#fff; }
+  .gtitle-input { font-size:13px; font-weight:600; color:#fff; background:var(--surface2); border:1px solid var(--red); border-radius:4px; padding:2px 8px; outline:none; display:none; width:140px; }
+  .gsub { font-size:11px; color:var(--muted); }
+  .gactions { display:flex; gap:4px; }
+  .gbtn { background:none; border:1px solid var(--border2); border-radius:4px; color:var(--muted); cursor:pointer; font-size:10px; padding:3px 7px; transition:all .15s; white-space:nowrap; }
+  .gbtn:hover { color:var(--text); }
+  .gbtn.rename:hover { color:#4f8ef7; border-color:#4f8ef7; }
+  .gbtn.del-pod:hover { color:var(--red); border-color:var(--red); }
+  .gchev { font-size:16px; color:var(--muted); min-width:16px; text-align:center; }
 
-  .members { border-top: 1px solid var(--border); padding: .9rem 1.1rem; display: none; flex-direction: column; gap: 12px; }
-  .members.open { display: flex; }
+  /* Circular pod gauge */
+  .gbar-wrap { padding:0 1.1rem .7rem; display:flex; align-items:center; gap:12px; }
+  .pod-gauge { flex-shrink:0; }
+  .pod-track { height:5px; background:var(--surface2); border-radius:99px; overflow:hidden; flex:1; }
+  .pod-fill { height:100%; border-radius:99px; background:var(--red); transition:width .4s ease; }
+
+  .members { border-top:1px solid var(--border); padding:.9rem 1.1rem; display:none; flex-direction:column; gap:12px; }
+  .members.open { display:flex; }
 
   /* Member row */
-  .mrow { padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-  .mrow:last-child { border-bottom: none; padding-bottom: 0; }
-  .mhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; gap: 8px; }
-  .mname-wrap { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; }
-  .mname { font-size: 12px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .mname-input { font-size: 12px; font-weight: 600; color: #fff; background: var(--surface2); border: 1px solid var(--red); border-radius: 4px; padding: 2px 6px; outline: none; width: 160px; display: none; }
-  .msub { font-size: 10px; color: var(--muted); white-space: nowrap; }
-  .mactions { display: flex; gap: 4px; flex-shrink: 0; }
-  .mbtn { background: none; border: 1px solid var(--border2); border-radius: 4px; color: var(--muted); cursor: pointer; font-size: 10px; padding: 3px 7px; transition: all .15s; white-space: nowrap; }
-  .mbtn:hover { color: var(--text); border-color: var(--border2); }
-  .mbtn.edit:hover { color: #4f8ef7; border-color: #4f8ef7; }
-  .mbtn.save { color: var(--green); border-color: rgba(45,206,137,.4); display: none; }
-  .mbtn.save:hover { background: var(--green-bg); }
-  .mbtn.del:hover { color: var(--red); border-color: var(--red); }
+  .mrow { padding-bottom:12px; border-bottom:1px solid var(--border); }
+  .mrow:last-child { border-bottom:none; padding-bottom:0; }
+  .mhead { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; gap:8px; }
+  .mname-wrap { display:flex; align-items:center; gap:6px; flex:1; min-width:0; }
+  .mname { font-size:12px; font-weight:600; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .mname-input { font-size:12px; font-weight:600; color:#fff; background:var(--surface2); border:1px solid var(--red); border-radius:4px; padding:2px 6px; outline:none; width:160px; display:none; }
+  .msub { font-size:10px; color:var(--muted); white-space:nowrap; }
+  .mactions { display:flex; gap:4px; flex-shrink:0; }
+  .mbtn { background:none; border:1px solid var(--border2); border-radius:4px; color:var(--muted); cursor:pointer; font-size:10px; padding:3px 7px; transition:all .15s; white-space:nowrap; }
+  .mbtn.edit:hover { color:#4f8ef7; border-color:#4f8ef7; }
+  .mbtn.save { color:var(--green); border-color:rgba(45,206,137,.4); display:none; }
+  .mbtn.save:hover { background:var(--green-bg); }
+  .mbtn.del:hover { color:var(--red); border-color:var(--red); }
 
-  .doc-grid { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 7px; }
-  .dbtn { flex: 0 0 auto; padding: 4px 7px; font-size: 10px; background: var(--surface2); border: 1px solid var(--border2); border-radius: var(--radius-sm); color: var(--muted); cursor: pointer; transition: all .15s; white-space: nowrap; font-weight: 500; }
-  .dbtn.done { background: var(--green-bg); border-color: rgba(45,206,137,.3); color: var(--green); }
-  .dbtn:hover:not(.done) { border-color: var(--red); color: var(--red); }
+  /* Striped player bar */
+  .player-bar-wrap { margin-top:6px; display:flex; gap:3px; }
+  .pbar-seg { flex:1; height:5px; border-radius:2px; background:var(--surface2); transition:background .3s; }
+  .pbar-seg.done { background:var(--green); }
 
-  /* Add player */
-  .add-player-row { display: flex; gap: 6px; margin-top: 8px; }
-  .add-player-row input { flex: 1; background: var(--bg); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 7px 10px; color: var(--text); font-size: 12px; outline: none; transition: border-color .2s; }
-  .add-player-row input:focus { border-color: var(--red); }
-  .add-player-row input::placeholder { color: var(--muted); }
-  .btn-add { background: var(--red-bg); border: 1px solid rgba(204,0,0,.3); color: var(--red); border-radius: var(--radius-sm); padding: 7px 12px; font-size: 11px; font-weight: 600; cursor: pointer; transition: background .15s; white-space: nowrap; }
-  .btn-add:hover { background: rgba(204,0,0,.2); }
+  .doc-grid { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:7px; }
+  .dbtn { flex:0 0 auto; padding:4px 7px; font-size:10px; background:var(--surface2); border:1px solid var(--border2); border-radius:var(--radius-sm); color:var(--muted); cursor:pointer; transition:all .15s; white-space:nowrap; font-weight:500; }
+  .dbtn.done { background:var(--green-bg); border-color:rgba(45,206,137,.3); color:var(--green); }
+  .dbtn:hover:not(.done) { border-color:var(--red); color:var(--red); }
 
-  /* Status */
-  #status-bar { position: fixed; bottom: 1rem; right: 1rem; background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 8px 14px; font-size: 12px; color: var(--muted); display: none; transition: opacity .3s; z-index: 99; }
+  .add-player-row { display:flex; gap:6px; margin-top:8px; }
+  .add-player-row input { flex:1; background:var(--bg); border:1px solid var(--border2); border-radius:var(--radius-sm); padding:7px 10px; color:var(--text); font-size:12px; outline:none; transition:border-color .2s; }
+  .add-player-row input:focus { border-color:var(--red); }
+  .add-player-row input::placeholder { color:var(--muted); }
+  .btn-add { background:var(--red-bg); border:1px solid rgba(204,0,0,.3); color:var(--red); border-radius:var(--radius-sm); padding:7px 12px; font-size:11px; font-weight:600; cursor:pointer; white-space:nowrap; }
+  .btn-add:hover { background:rgba(204,0,0,.2); }
 
-  /* Loading */
-  #loading { position: fixed; inset: 0; background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; gap: 16px; }
-  .loading-logo { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--red); object-fit: cover; background: #fff; animation: pulse 1.5s ease-in-out infinite; }
+  #status-bar { position:fixed; bottom:1rem; right:1rem; background:var(--surface); border:1px solid var(--border2); border-radius:var(--radius-sm); padding:8px 14px; font-size:12px; color:var(--muted); display:none; transition:opacity .3s; z-index:99; }
+
+  #confirm-modal { position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:50; padding:1rem; }
+  #confirm-modal.open { display:flex; }
+  .modal-box { background:var(--surface); border:1px solid var(--border2); border-radius:var(--radius); padding:1.5rem; width:100%; max-width:360px; display:flex; flex-direction:column; gap:14px; }
+  .modal-title { font-size:16px; font-weight:700; color:#fff; }
+  .modal-sub { font-size:13px; color:var(--muted); line-height:1.6; }
+  .btn-row { display:flex; gap:8px; }
+  .btn-cancel { background:var(--surface2); color:var(--muted); border:1px solid var(--border2); border-radius:var(--radius-sm); padding:9px 16px; font-size:13px; cursor:pointer; flex:1; }
+  .btn-confirm-del { background:var(--red-bg); color:var(--red); border:1px solid rgba(204,0,0,.3); border-radius:var(--radius-sm); padding:9px 16px; font-size:13px; font-weight:600; cursor:pointer; flex:1; }
+  .btn-confirm-del:hover { background:rgba(204,0,0,.25); }
+
+  #loading { position:fixed; inset:0; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:100; gap:16px; }
+  .loading-logo { width:64px; height:64px; border-radius:50%; border:2px solid var(--red); object-fit:cover; background:#fff; animation:pulse 1.5s ease-in-out infinite; }
   @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
-  .loading-text { font-size: 13px; color: var(--muted); }
+  .loading-text { font-size:13px; color:var(--muted); }
 
-  /* Confirm modal */
-  #confirm-modal { position: fixed; inset: 0; background: rgba(0,0,0,.8); display: none; align-items: center; justify-content: center; z-index: 50; padding: 1rem; }
-  #confirm-modal.open { display: flex; }
-  .modal-box { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); padding: 1.5rem; width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 14px; }
-  .modal-title { font-size: 16px; font-weight: 700; color: #fff; }
-  .modal-sub { font-size: 13px; color: var(--muted); line-height: 1.6; }
-  .btn-row { display: flex; gap: 8px; }
-  .btn-cancel { background: var(--surface2); color: var(--muted); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 9px 16px; font-size: 13px; cursor: pointer; flex: 1; }
-  .btn-confirm-del { background: var(--red-bg); color: var(--red); border: 1px solid rgba(204,0,0,.3); border-radius: var(--radius-sm); padding: 9px 16px; font-size: 13px; font-weight: 600; cursor: pointer; flex: 1; }
-  .btn-confirm-del:hover { background: rgba(204,0,0,.25); }
+  footer { text-align:center; padding:1.5rem; font-size:11px; color:#333; letter-spacing:.08em; }
+  footer span { color:var(--red); font-weight:600; }
 
-  @media(max-width:600px){ main{padding:1rem;} header{padding:0 1rem;} }
+  /* Search highlight */
+  .mrow.highlighted { background:rgba(204,0,0,.07); border-radius:6px; outline:1px solid rgba(204,0,0,.2); }
+
+  @media(max-width:600px){ main{padding:1rem;} header{padding:0 1rem;} .overall{flex-direction:column;} }
 </style>
 </head>
 <body>
@@ -162,25 +203,76 @@
     <button class="btn-logout" id="btn-logout">Sign out</button>
   </header>
   <main>
+
+    <!-- Rugby ball overall -->
     <div class="overall">
-      <div class="overall-row">
-        <span class="overall-label">Overall progress</span>
-        <span class="overall-pct" id="total-pct">0%</span>
+      <div class="ball-wrap">
+        <div class="ball-label">Overall</div>
+        <svg class="ball-svg" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="ball-clip">
+              <ellipse cx="60" cy="40" rx="55" ry="34"/>
+            </clipPath>
+            <linearGradient id="ball-fill-grad" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#cc0000"/>
+              <stop offset="100%" stop-color="#ff3333"/>
+            </linearGradient>
+          </defs>
+          <!-- Ball shadow -->
+          <ellipse cx="62" cy="74" rx="38" ry="4" fill="rgba(0,0,0,0.3)"/>
+          <!-- Ball background -->
+          <ellipse cx="60" cy="40" rx="55" ry="34" fill="#1a1a1a" stroke="#333" stroke-width="1.5"/>
+          <!-- Fill layer clipped to ball shape -->
+          <rect id="ball-fill-rect" x="5" y="74" width="110" height="0" fill="url(#ball-fill-grad)" clip-path="url(#ball-clip)" style="transition:all 1s ease"/>
+          <!-- Stitching lines -->
+          <line x1="60" y1="6" x2="60" y2="74" stroke="#333" stroke-width="1" stroke-dasharray="3,3"/>
+          <path d="M52,18 Q60,22 68,18" fill="none" stroke="#444" stroke-width="1"/>
+          <path d="M50,28 Q60,33 70,28" fill="none" stroke="#444" stroke-width="1"/>
+          <path d="M50,52 Q60,47 70,52" fill="none" stroke="#444" stroke-width="1"/>
+          <path d="M52,62 Q60,58 68,62" fill="none" stroke="#444" stroke-width="1"/>
+          <!-- Ball outline on top -->
+          <ellipse cx="60" cy="40" rx="55" ry="34" fill="none" stroke="#555" stroke-width="1.5"/>
+          <!-- Tips -->
+          <path d="M5,40 Q8,36 12,38 Q8,42 5,40Z" fill="#222"/>
+          <path d="M115,40 Q112,36 108,38 Q112,42 115,40Z" fill="#222"/>
+          <!-- Pct text -->
+          <text id="ball-pct-text" x="60" y="44" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Inter,system-ui,sans-serif">0%</text>
+        </svg>
       </div>
-      <div class="overall-nums" id="total-num">0 / 0 documents</div>
-      <div class="track"><div class="fill fill-g" id="total-bar" style="width:0%"></div></div>
+      <div class="overall-stats">
+        <div class="overall-title">Season document progress</div>
+        <div class="overall-big" id="total-num">0 / 0</div>
+        <div class="overall-sub">documents received</div>
+        <div class="stat-row">
+          <div class="stat"><div class="stat-num" id="stat-players">0</div><div class="stat-lbl">Players</div></div>
+          <div class="stat"><div class="stat-num" id="stat-pods">0</div><div class="stat-lbl">Pods</div></div>
+          <div class="stat"><div class="stat-num" id="stat-complete">0</div><div class="stat-lbl">Complete</div></div>
+        </div>
+      </div>
     </div>
+
+    <!-- Search -->
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input id="search-input" type="text" placeholder="Search for a player…"/>
+    </div>
+    <div id="search-results"></div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <span class="toolbar-title" id="pod-count-label">0 pods</span>
+      <button class="btn-add-pod" id="btn-add-pod">+ Add Pod</button>
+    </div>
+
     <div class="groups" id="groups-container"></div>
   </main>
-  <footer style="text-align:center; padding: 1.5rem; font-size: 11px; color: #444; letter-spacing: .08em;">
-    built by <span style="color: #cc0000; font-weight: 600;">Fantasma Was Here</span>
-  </footer>
+  <footer>FYI <span>Fantasma Was Here</span></footer>
 </div>
 
 <div id="confirm-modal">
   <div class="modal-box">
-    <div class="modal-title">Remove player?</div>
-    <div class="modal-sub" id="confirm-msg">This will permanently remove the player and all their document progress.</div>
+    <div class="modal-title" id="confirm-title">Are you sure?</div>
+    <div class="modal-sub" id="confirm-msg"></div>
     <div class="btn-row">
       <button class="btn-cancel" id="confirm-cancel">Cancel</button>
       <button class="btn-confirm-del" id="confirm-ok">Remove</button>
@@ -206,32 +298,26 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// ── Default players (imported to Firestore on first run, NOT shown in UI from here) ──
-const DEFAULT_PODS = {};
-
 const DOCS = [
   "Passport Photo","National ID/BC","Player Profile","Code of Conduct",
   "Rugby Ready","Laws of Game","First Aid","Concussion Mgmt","Keep Rugby Clean"
 ];
 const DOCS_PER = DOCS.length;
-const NUM_PODS = 11;
 
-const app = initializeApp(firebaseConfig);
+const app  = initializeApp(firebaseConfig);
 const auth = getAuth(app), db = getFirestore(app);
-
-// localData: { state: {}, pods: { 1: [{id,name}, ...], ... } }
-let localData = { state: {}, pods: {} };
+let localData = { state:{}, pods:{}, podOrder:[] };
 let unsubscribe = null;
 
 function pct(a,b){ return b===0?0:Math.round(a/b*100); }
-function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
 function showStatus(msg,ms=1800){
   const b=document.getElementById('status-bar');
   b.textContent=msg; b.style.display='block'; b.style.opacity='1';
   setTimeout(()=>{ b.style.opacity='0'; setTimeout(()=>b.style.display='none',300); },ms);
 }
 
-// ── Auth ──
+// ── Auth ──────────────────────────────────────────
 document.getElementById('btn-signin').addEventListener('click', async()=>{
   const email=document.getElementById('auth-email').value.trim();
   const pass=document.getElementById('auth-pass').value;
@@ -257,22 +343,17 @@ onAuthStateChanged(auth, user=>{
   }
 });
 
-// ── Firestore ──
+// ── Firestore ──────────────────────────────────────
 function startListening(){
-  const ref = doc(db,'tracker','main');
-  unsubscribe = onSnapshot(ref, snap=>{
+  unsubscribe = onSnapshot(doc(db,'tracker','main'), snap=>{
     if(!snap.exists()){
-      // First run: seed player data into Firestore
-      const pods = {};
-      for(let g=1;g<=NUM_PODS;g++){
-        pods[g] = DEFAULT_PODS[g].map(name=>({ id: uid(), name }));
-      }
-      localData = { state:{}, pods };
-      saveAll().then(()=>{ renderUI(); showStatus('Player data initialised ✓'); });
+      localData = { state:{}, pods:{}, podOrder:[] };
+      saveAll().then(()=>{ renderUI(); showStatus('Ready — add your pods and players ✓'); });
     } else {
       const d = snap.data();
-      localData.state = d.state || {};
-      localData.pods  = d.pods  || {};
+      localData.state    = d.state    || {};
+      localData.pods     = d.pods     || {};
+      localData.podOrder = d.podOrder || Object.keys(d.pods||{});
       renderUI();
     }
   });
@@ -280,206 +361,354 @@ function startListening(){
 
 async function saveAll(){
   await setDoc(doc(db,'tracker','main'),{
-    state: localData.state,
-    pods:  localData.pods,
+    state:    localData.state,
+    pods:     localData.pods,
+    podOrder: localData.podOrder,
     updatedAt: serverTimestamp()
-  },{ merge: true });
+  },{ merge:true });
 }
 
-// ── Toggle doc ──
-async function toggleDoc(g, playerId, d){
-  const k = `${g}_${playerId}`;
-  if(!localData.state[k]) localData.state[k] = new Array(DOCS_PER).fill(false);
-  localData.state[k][d] = !localData.state[k][d];
-  const val = localData.state[k][d];
-  const btn = document.getElementById(`btn-${g}-${playerId}-${d}`);
-  if(btn) btn.classList.toggle('done', val);
-  updateMemberBar(g, playerId);
-  updateGroupBar(g);
+// ── Rugby ball animation ───────────────────────────
+function updateBall(p){
+  const rect  = document.getElementById('ball-fill-rect');
+  const label = document.getElementById('ball-pct-text');
+  if(!rect||!label) return;
+  const fillH = Math.round(68 * p / 100);
+  rect.setAttribute('y', 74 - fillH);
+  rect.setAttribute('height', fillH);
+  label.textContent = p + '%';
+  // colour text based on fill level
+  label.setAttribute('fill', p > 55 ? '#fff' : '#fff');
+}
+
+// ── Totals ────────────────────────────────────────
+function playerDone(podId, playerId){ return (localData.state[`${podId}_${playerId}`]||[]).filter(Boolean).length; }
+function podDone(podId){ return (localData.pods[podId]||[]).reduce((t,p)=>t+playerDone(podId,p.id),0); }
+function totalDone(){ return localData.podOrder.reduce((t,pid)=>t+podDone(pid),0); }
+function totalPlayers(){ return localData.podOrder.reduce((t,pid)=>t+(localData.pods[pid]||[]).length,0); }
+function totalMax(){ return totalPlayers()*DOCS_PER; }
+function completeCount(){
+  let c=0;
+  localData.podOrder.forEach(pid=>{
+    (localData.pods[pid]||[]).forEach(p=>{ if(playerDone(pid,p.id)===DOCS_PER) c++; });
+  });
+  return c;
+}
+
+function updateTotalBar(){
+  const done=totalDone(), max=totalMax(), players=totalPlayers();
+  const p = pct(done,max);
+  document.getElementById('total-num').textContent=`${done} / ${max}`;
+  document.getElementById('stat-players').textContent=players;
+  document.getElementById('stat-pods').textContent=localData.podOrder.length;
+  document.getElementById('stat-complete').textContent=completeCount();
+  document.getElementById('pod-count-label').textContent=`${localData.podOrder.length} pod${localData.podOrder.length!==1?'s':''}`;
+  updateBall(p);
+}
+
+function updatePodBar(podId){
+  const players=localData.pods[podId]||[], max=players.length*DOCS_PER, done=podDone(podId);
+  const el=document.getElementById(`gbar-${podId}`); if(el) el.style.width=pct(done,max)+'%';
+  const sub=document.getElementById(`gsub-${podId}`); if(sub) sub.textContent=`${done}/${max} docs · ${pct(done,max)}%`;
+}
+
+function updatePlayerSegs(podId, playerId){
+  const arr=localData.state[`${podId}_${playerId}`]||[];
+  DOCS.forEach((_,d)=>{
+    const seg=document.getElementById(`seg-${podId}-${playerId}-${d}`);
+    if(seg) seg.classList.toggle('done', !!arr[d]);
+  });
+  const sub=document.getElementById(`msub-${podId}-${playerId}`);
+  const done=playerDone(podId,playerId);
+  if(sub) sub.textContent=`${done}/${DOCS_PER}`;
+}
+
+// ── Toggle doc ────────────────────────────────────
+async function toggleDoc(podId, playerId, d){
+  const k=`${podId}_${playerId}`;
+  if(!localData.state[k]) localData.state[k]=new Array(DOCS_PER).fill(false);
+  localData.state[k][d]=!localData.state[k][d];
+  const val=localData.state[k][d];
+  const btn=document.getElementById(`btn-${podId}-${playerId}-${d}`);
+  if(btn) btn.classList.toggle('done',val);
+  updatePlayerSegs(podId,playerId);
+  updatePodBar(podId);
   updateTotalBar();
   try{ await saveAll(); showStatus(val?'✓ Saved':'Unmarked'); }
   catch(e){ localData.state[k][d]=!val; showStatus('⚠ Save failed',3000); }
 }
 
-// ── Add player ──
-async function addPlayer(g){
-  const input = document.getElementById(`add-input-${g}`);
-  const name = input.value.trim();
-  if(!name) return;
-  const player = { id: uid(), name };
-  if(!localData.pods[g]) localData.pods[g]=[];
-  localData.pods[g].push(player);
-  input.value='';
-  appendMemberRow(g, player);
-  updateGroupBar(g);
+// ── Add Pod ───────────────────────────────────────
+async function addPod(){
+  const podId  = uid();
+  const podNum = localData.podOrder.length + 1;
+  const name   = `Pod ${podNum}`;
+  localData.pods[podId]    = [];
+  localData.podOrder.push(podId);
+  appendPodCard(podId, name);
   updateTotalBar();
   try{ await saveAll(); showStatus(`${name} added ✓`); }
-  catch(e){ localData.pods[g].pop(); showStatus('⚠ Save failed',3000); }
+  catch(e){ showStatus('⚠ Save failed',3000); }
+}
+document.getElementById('btn-add-pod').addEventListener('click', addPod);
+
+// ── Rename Pod ────────────────────────────────────
+function togglePodEdit(podId, on){
+  const title = document.getElementById(`gtitle-${podId}`);
+  const input = document.getElementById(`gtitle-input-${podId}`);
+  title.style.display = on?'none':'block';
+  input.style.display = on?'inline-block':'none';
+  if(on){ input.value=title.textContent; input.focus(); }
 }
 
-// ── Rename player ──
-async function saveRename(g, playerId){
-  const input = document.getElementById(`rename-${g}-${playerId}`);
-  const newName = input.value.trim();
-  if(!newName) return;
-  const player = localData.pods[g].find(p=>p.id===playerId);
-  const oldName = player.name;
-  player.name = newName;
-  document.getElementById(`mname-${g}-${playerId}`).textContent = newName;
-  toggleEditMode(g, playerId, false);
+async function savePodRename(podId){
+  const input=document.getElementById(`gtitle-input-${podId}`);
+  const newName=input.value.trim(); if(!newName) return;
+  document.getElementById(`gtitle-${podId}`).textContent=newName;
+  togglePodEdit(podId,false);
+  if(!localData.podNames) localData.podNames={};
+  localData.podNames[podId]=newName;
+  try{ await setDoc(doc(db,'tracker','main'),{podNames:localData.podNames,updatedAt:serverTimestamp()},{merge:true}); showStatus('Pod renamed ✓'); }
+  catch(e){ showStatus('⚠ Save failed',3000); }
+}
+
+// ── Remove Pod ────────────────────────────────────
+async function removePod(podId, name){
+  localData.podOrder = localData.podOrder.filter(id=>id!==podId);
+  delete localData.pods[podId];
+  // clean state
+  Object.keys(localData.state).forEach(k=>{ if(k.startsWith(podId+'_')) delete localData.state[k]; });
+  document.getElementById(`gc-${podId}`)?.remove();
+  updateTotalBar();
+  try{ await saveAll(); showStatus(`${name} removed`); }
+  catch(e){ showStatus('⚠ Save failed',3000); }
+}
+
+// ── Add Player ────────────────────────────────────
+async function addPlayer(podId){
+  const input=document.getElementById(`add-input-${podId}`);
+  const name=input.value.trim(); if(!name) return;
+  const player={id:uid(), name};
+  if(!localData.pods[podId]) localData.pods[podId]=[];
+  localData.pods[podId].push(player);
+  input.value='';
+  appendMemberRow(podId, player);
+  updatePodBar(podId);
+  updateTotalBar();
+  try{ await saveAll(); showStatus(`${name} added ✓`); }
+  catch(e){ localData.pods[podId].pop(); showStatus('⚠ Save failed',3000); }
+}
+
+// ── Rename Player ─────────────────────────────────
+async function saveRename(podId, playerId){
+  const input=document.getElementById(`rename-${podId}-${playerId}`);
+  const newName=input.value.trim(); if(!newName) return;
+  const player=localData.pods[podId].find(p=>p.id===playerId);
+  const oldName=player.name;
+  player.name=newName;
+  document.getElementById(`mname-${podId}-${playerId}`).textContent=newName;
+  toggleEditMode(podId,playerId,false);
   try{ await saveAll(); showStatus('Name updated ✓'); }
-  catch(e){ player.name=oldName; document.getElementById(`mname-${g}-${playerId}`).textContent=oldName; showStatus('⚠ Save failed',3000); }
+  catch(e){ player.name=oldName; document.getElementById(`mname-${podId}-${playerId}`).textContent=oldName; showStatus('⚠ Save failed',3000); }
 }
 
-function toggleEditMode(g, playerId, on){
-  document.getElementById(`mname-${g}-${playerId}`).style.display = on?'none':'block';
-  document.getElementById(`rename-${g}-${playerId}`).style.display = on?'inline-block':'none';
-  document.getElementById(`editbtn-${g}-${playerId}`).style.display = on?'none':'inline-block';
-  document.getElementById(`savebtn-${g}-${playerId}`).style.display = on?'inline-block':'none';
-  if(on){
-    const inp = document.getElementById(`rename-${g}-${playerId}`);
-    inp.value = localData.pods[g].find(p=>p.id===playerId).name;
-    inp.focus();
-  }
+function toggleEditMode(podId,playerId,on){
+  document.getElementById(`mname-${podId}-${playerId}`).style.display=on?'none':'block';
+  document.getElementById(`rename-${podId}-${playerId}`).style.display=on?'inline-block':'none';
+  document.getElementById(`editbtn-${podId}-${playerId}`).style.display=on?'none':'inline-block';
+  document.getElementById(`savebtn-${podId}-${playerId}`).style.display=on?'inline-block':'none';
+  if(on){ const inp=document.getElementById(`rename-${podId}-${playerId}`); inp.value=localData.pods[podId].find(p=>p.id===playerId).name; inp.focus(); }
 }
 
-// ── Remove player ──
-let pendingRemove = null;
-function confirmRemove(g, playerId, name){
-  document.getElementById('confirm-msg').textContent = `This will permanently remove ${name} and all their document progress from Pod ${g}.`;
-  pendingRemove = { g, playerId };
+// ── Remove Player ─────────────────────────────────
+let pendingRemove=null;
+function confirmRemove(podId,playerId,name,isPod=false){
+  document.getElementById('confirm-title').textContent=isPod?'Remove pod?':'Remove player?';
+  document.getElementById('confirm-msg').textContent=isPod
+    ? `This will permanently remove "${name}" and all player data within it.`
+    : `This will permanently remove ${name} and all their document progress.`;
+  pendingRemove={ podId, playerId, name, isPod };
   document.getElementById('confirm-modal').classList.add('open');
 }
-document.getElementById('confirm-cancel').addEventListener('click',()=>{
-  document.getElementById('confirm-modal').classList.remove('open');
-  pendingRemove=null;
-});
+document.getElementById('confirm-cancel').addEventListener('click',()=>{ document.getElementById('confirm-modal').classList.remove('open'); pendingRemove=null; });
 document.getElementById('confirm-ok').addEventListener('click', async()=>{
   if(!pendingRemove) return;
-  const {g, playerId} = pendingRemove;
   document.getElementById('confirm-modal').classList.remove('open');
-  const idx = localData.pods[g].findIndex(p=>p.id===playerId);
-  const removed = localData.pods[g].splice(idx,1)[0];
-  delete localData.state[`${g}_${playerId}`];
-  document.getElementById(`mrow-${g}-${playerId}`)?.remove();
-  updateGroupBar(g);
-  updateTotalBar();
-  try{ await saveAll(); showStatus(`${removed.name} removed`); }
-  catch(e){ showStatus('⚠ Save failed',3000); }
+  const {podId,playerId,name,isPod}=pendingRemove;
+  if(isPod){ await removePod(podId,name); }
+  else {
+    const idx=localData.pods[podId].findIndex(p=>p.id===playerId);
+    localData.pods[podId].splice(idx,1);
+    delete localData.state[`${podId}_${playerId}`];
+    document.getElementById(`mrow-${podId}-${playerId}`)?.remove();
+    updatePodBar(podId); updateTotalBar();
+    try{ await saveAll(); showStatus(`${name} removed`); }
+    catch(e){ showStatus('⚠ Save failed',3000); }
+  }
   pendingRemove=null;
 });
 
-// ── Render ──
+// ── Search ────────────────────────────────────────
+document.getElementById('search-input').addEventListener('input', function(){
+  const q=this.value.trim().toLowerCase();
+  const box=document.getElementById('search-results');
+  if(!q){ box.style.display='none'; box.innerHTML=''; return; }
+  const matches=[];
+  localData.podOrder.forEach(pid=>{
+    const podName=document.getElementById(`gtitle-${pid}`)?.textContent||pid;
+    (localData.pods[pid]||[]).forEach(p=>{
+      if(p.name.toLowerCase().includes(q)) matches.push({pid,podName,player:p});
+    });
+  });
+  if(!matches.length){ box.innerHTML='<div class="no-results">No players found</div>'; box.style.display='block'; return; }
+  box.innerHTML=matches.map(m=>{
+    const done=playerDone(m.pid,m.player.id);
+    return `<div class="search-result-item" onclick="window._jumpTo('${m.pid}','${m.player.id}')">
+      <div><div class="sri-name">${m.player.name}</div><div class="sri-pod">${m.podName}</div></div>
+      <div class="sri-prog">${done}/${DOCS_PER} docs</div>
+    </div>`;
+  }).join('');
+  box.style.display='block';
+});
+
+function jumpTo(podId, playerId){
+  document.getElementById('search-input').value='';
+  document.getElementById('search-results').style.display='none';
+  // Open pod
+  const mem=document.getElementById(`mem-${podId}`);
+  if(mem && !mem.classList.contains('open')){
+    mem.classList.add('open');
+    const chev=document.getElementById(`gchev-${podId}`);
+    if(chev) chev.textContent='˅';
+  }
+  // Scroll and highlight
+  const mrow=document.getElementById(`mrow-${podId}-${playerId}`);
+  if(mrow){
+    mrow.scrollIntoView({behavior:'smooth', block:'center'});
+    mrow.classList.add('highlighted');
+    setTimeout(()=>mrow.classList.remove('highlighted'),2500);
+  }
+}
+
+// ── Render ────────────────────────────────────────
 function renderUI(){
   updateTotalBar();
-  const cont = document.getElementById('groups-container');
-  if(cont.children.length===0) buildGroupCards();
-  else { refreshAllBars(); refreshAllButtons(); }
-}
-
-function buildGroupCards(){
-  const cont = document.getElementById('groups-container');
+  const cont=document.getElementById('groups-container');
+  // Full rebuild on sync (handles add/remove pod from other admin)
   cont.innerHTML='';
-  for(let g=1;g<=NUM_PODS;g++){
-    const players = localData.pods[g] || [];
-    const card = document.createElement('div'); card.className='gcard';
-    const head = document.createElement('div'); head.className='ghead';
-    head.innerHTML=`<div class="gnum">${g}</div><div style="flex:1"><div class="gtitle">Pod ${g}</div><div class="gsub" id="gsub-${g}">0/${players.length*DOCS_PER} docs · 0%</div></div><span class="gchev" id="gchev-${g}">›</span>`;
-    const barWrap = document.createElement('div'); barWrap.className='gbar-wrap';
-    barWrap.innerHTML=`<div class="track"><div class="fill fill-group" id="gbar-${g}" style="width:0%"></div></div>`;
-    const mem = document.createElement('div'); mem.className='members'; mem.id=`mem-${g}`;
-
-    players.forEach(player=> appendMemberRow(g, player, mem));
-
-    // Add player row
-    const addRow = document.createElement('div'); addRow.className='add-player-row';
-    addRow.innerHTML=`<input id="add-input-${g}" placeholder="Add player name…"/><button class="btn-add" onclick="window._addPlayer(${g})">+ Add</button>`;
-    mem.appendChild(addRow);
-    document.addEventListener('keydown', e=>{
-      const inp = document.getElementById(`add-input-${g}`);
-      if(e.key==='Enter' && document.activeElement===inp) window._addPlayer(g);
-    });
-
-    head.addEventListener('click',()=>{
-      const open=mem.classList.toggle('open');
-      document.getElementById(`gchev-${g}`).textContent=open?'˅':'›';
-    });
-    card.appendChild(head); card.appendChild(barWrap); card.appendChild(mem);
-    cont.appendChild(card);
-  }
-  refreshAllBars(); refreshAllButtons();
+  localData.podOrder.forEach(podId=>{
+    const podName=(localData.podNames||{})[podId]||`Pod ${localData.podOrder.indexOf(podId)+1}`;
+    appendPodCard(podId, podName, true);
+  });
+  refreshAllButtons();
 }
 
-function appendMemberRow(g, player, container){
-  const mem = container || document.getElementById(`mem-${g}`);
-  const addRow = mem.querySelector('.add-player-row');
-  const mrow = document.createElement('div');
-  mrow.className='mrow'; mrow.id=`mrow-${g}-${player.id}`;
+function appendPodCard(podId, podName, skipScroll=false){
+  const cont=document.getElementById('groups-container');
+  const players=localData.pods[podId]||[];
+  const card=document.createElement('div'); card.className='gcard'; card.id=`gc-${podId}`;
+
+  const head=document.createElement('div'); head.className='ghead';
+  head.innerHTML=`
+    <div class="gnum">${localData.podOrder.indexOf(podId)+1}</div>
+    <div class="gtitle-wrap">
+      <div class="gtitle" id="gtitle-${podId}">${podName}</div>
+      <input class="gtitle-input" id="gtitle-input-${podId}" onkeydown="if(event.key==='Enter')window._savePodRename('${podId}')"/>
+      <div class="gsub" id="gsub-${podId}">0/${players.length*DOCS_PER} docs · 0%</div>
+    </div>
+    <div class="gactions" onclick="event.stopPropagation()">
+      <button class="gbtn rename" onclick="window._togglePodEdit('${podId}',true)">✏ Rename</button>
+      <button class="gbtn" id="pod-save-${podId}" style="display:none;color:var(--green);border-color:rgba(45,206,137,.4)" onclick="window._savePodRename('${podId}')">✓ Save</button>
+      <button class="gbtn del-pod" onclick="window._confirmRemove('${podId}',null,'${podName}',true)">✕ Remove</button>
+    </div>
+    <span class="gchev" id="gchev-${podId}">›</span>
+  `;
+
+  const barWrap=document.createElement('div'); barWrap.className='gbar-wrap';
+  barWrap.innerHTML=`<div class="pod-track"><div class="pod-fill" id="gbar-${podId}" style="width:0%"></div></div>`;
+
+  const mem=document.createElement('div'); mem.className='members'; mem.id=`mem-${podId}`;
+  players.forEach(p=>appendMemberRow(podId,p,mem));
+
+  const addRow=document.createElement('div'); addRow.className='add-player-row';
+  addRow.innerHTML=`<input id="add-input-${podId}" placeholder="Add player name…"/><button class="btn-add" onclick="window._addPlayer('${podId}')">+ Add</button>`;
+  addRow.querySelector('input').addEventListener('keydown',e=>{ if(e.key==='Enter') window._addPlayer(podId); });
+  mem.appendChild(addRow);
+
+  head.addEventListener('click',e=>{
+    if(e.target.closest('.gactions')||e.target.closest('.gtitle-input')) return;
+    const open=mem.classList.toggle('open');
+    document.getElementById(`gchev-${podId}`).textContent=open?'˅':'›';
+  });
+
+  // Toggle pod rename button visibility
+  const renameBtn=head.querySelector('.gbtn.rename');
+  const saveBtn=head.querySelector(`#pod-save-${podId}`);
+  const titleInput=head.querySelector(`#gtitle-input-${podId}`);
+  titleInput.addEventListener('focus',()=>{ renameBtn.style.display='none'; saveBtn.style.display='inline-block'; });
+  titleInput.addEventListener('blur',()=>{ setTimeout(()=>{ renameBtn.style.display='inline-block'; saveBtn.style.display='none'; },200); });
+
+  card.appendChild(head); card.appendChild(barWrap); card.appendChild(mem);
+  cont.appendChild(card);
+  if(!skipScroll){ card.scrollIntoView({behavior:'smooth',block:'nearest'}); }
+  updatePodBar(podId);
+}
+
+function appendMemberRow(podId, player, container){
+  const mem=container||document.getElementById(`mem-${podId}`);
+  const addRow=mem.querySelector('.add-player-row');
+  const mrow=document.createElement('div'); mrow.className='mrow'; mrow.id=`mrow-${podId}-${player.id}`;
+
   let btns='<div class="doc-grid">';
-  DOCS.forEach((dname,d)=>{ btns+=`<button class="dbtn" id="btn-${g}-${player.id}-${d}" onclick="window._toggle(${g},'${player.id}',${d})" title="${dname}">${dname}</button>`; });
+  DOCS.forEach((dname,d)=>{ btns+=`<button class="dbtn" id="btn-${podId}-${player.id}-${d}" onclick="window._toggle('${podId}','${player.id}',${d})" title="${dname}">${dname}</button>`; });
   btns+='</div>';
+
+  let segs='<div class="player-bar-wrap">';
+  DOCS.forEach((_,d)=>{ segs+=`<div class="pbar-seg" id="seg-${podId}-${player.id}-${d}"></div>`; });
+  segs+='</div>';
+
   mrow.innerHTML=`
     <div class="mhead">
       <div class="mname-wrap">
-        <span class="mname" id="mname-${g}-${player.id}">${player.name}</span>
-        <input class="mname-input" id="rename-${g}-${player.id}" onkeydown="if(event.key==='Enter')window._saveRename(${g},'${player.id}')"/>
+        <span class="mname" id="mname-${podId}-${player.id}">${player.name}</span>
+        <input class="mname-input" id="rename-${podId}-${player.id}" onkeydown="if(event.key==='Enter')window._saveRename('${podId}','${player.id}')"/>
       </div>
-      <span class="msub" id="msub-${g}-${player.id}">0/${DOCS_PER}</span>
+      <span class="msub" id="msub-${podId}-${player.id}">0/${DOCS_PER}</span>
       <div class="mactions">
-        <button class="mbtn edit" id="editbtn-${g}-${player.id}" onclick="window._toggleEdit(${g},'${player.id}',true)">✏ Rename</button>
-        <button class="mbtn save" id="savebtn-${g}-${player.id}" onclick="window._saveRename(${g},'${player.id}')">✓ Save</button>
-        <button class="mbtn del" onclick="window._confirmRemove(${g},'${player.id}','${player.name.replace(/'/g,"\\'")}')">✕ Remove</button>
+        <button class="mbtn edit" id="editbtn-${podId}-${player.id}" onclick="window._toggleEdit('${podId}','${player.id}',true)">✏ Rename</button>
+        <button class="mbtn save" id="savebtn-${podId}-${player.id}" onclick="window._saveRename('${podId}','${player.id}')">✓ Save</button>
+        <button class="mbtn del" onclick="window._confirmRemove('${podId}','${player.id}','${player.name.replace(/'/g,"\\'")}',false)">✕ Remove</button>
       </div>
     </div>
-    ${btns}
-    <div class="track" style="margin-top:5px"><div class="fill fill-player" id="mbar-${g}-${player.id}" style="width:0%"></div></div>
+    ${btns}${segs}
   `;
-  if(addRow) mem.insertBefore(mrow, addRow);
+  if(addRow) mem.insertBefore(mrow,addRow);
   else mem.appendChild(mrow);
-  // Restore doc state
-  const arr = localData.state[`${g}_${player.id}`] || [];
-  DOCS.forEach((_,d)=>{ const btn=document.getElementById(`btn-${g}-${player.id}-${d}`); if(btn) btn.classList.toggle('done',!!arr[d]); });
-  updateMemberBar(g, player.id);
+  updatePlayerSegs(podId,player.id);
 }
 
-// ── Bar updates ──
-function playerDone(g, playerId){ return (localData.state[`${g}_${playerId}`]||[]).filter(Boolean).length; }
-function groupDone(g){ return (localData.pods[g]||[]).reduce((t,p)=>t+playerDone(g,p.id),0); }
-function totalDone(){ let t=0; for(let g=1;g<=NUM_PODS;g++) t+=groupDone(g); return t; }
-function totalPlayers(){ let t=0; for(let g=1;g<=NUM_PODS;g++) t+=(localData.pods[g]||[]).length; return t; }
-function totalMax(){ return totalPlayers()*DOCS_PER; }
-
-function updateMemberBar(g,playerId){
-  const done=playerDone(g,playerId), max=DOCS_PER;
-  const el=document.getElementById(`mbar-${g}-${playerId}`); if(el) el.style.width=pct(done,max)+'%';
-  const sub=document.getElementById(`msub-${g}-${playerId}`); if(sub) sub.textContent=`${done}/${max}`;
-}
-function updateGroupBar(g){
-  const players=localData.pods[g]||[], max=players.length*DOCS_PER, done=groupDone(g);
-  const el=document.getElementById(`gbar-${g}`); if(el) el.style.width=pct(done,max)+'%';
-  const sub=document.getElementById(`gsub-${g}`); if(sub) sub.textContent=`${done}/${max} docs · ${pct(done,max)}%`;
-}
-function updateTotalBar(){
-  const done=totalDone(), max=totalMax(), players=totalPlayers();
-  document.getElementById('total-bar').style.width=pct(done,max)+'%';
-  document.getElementById('total-pct').textContent=pct(done,max)+'%';
-  document.getElementById('total-num').textContent=`${done} / ${max} documents · ${players} players`;
-}
-function refreshAllBars(){ for(let g=1;g<=NUM_PODS;g++){ updateGroupBar(g); (localData.pods[g]||[]).forEach(p=>updateMemberBar(g,p.id)); } updateTotalBar(); }
 function refreshAllButtons(){
-  for(let g=1;g<=NUM_PODS;g++) (localData.pods[g]||[]).forEach(p=>{
-    const arr=localData.state[`${g}_${p.id}`]||[];
-    DOCS.forEach((_,d)=>{ const btn=document.getElementById(`btn-${g}-${p.id}-${d}`); if(btn) btn.classList.toggle('done',!!arr[d]); });
-    updateMemberBar(g,p.id);
+  localData.podOrder.forEach(pid=>{
+    updatePodBar(pid);
+    (localData.pods[pid]||[]).forEach(p=>{
+      const arr=localData.state[`${pid}_${p.id}`]||[];
+      DOCS.forEach((_,d)=>{ const btn=document.getElementById(`btn-${pid}-${p.id}-${d}`); if(btn) btn.classList.toggle('done',!!arr[d]); });
+      updatePlayerSegs(pid,p.id);
+    });
   });
+  updateTotalBar();
 }
 
-// ── Globals ──
-window._toggle        = toggleDoc;
-window._addPlayer     = addPlayer;
-window._saveRename    = saveRename;
-window._toggleEdit    = toggleEditMode;
-window._confirmRemove = confirmRemove;
+// ── Globals ──────────────────────────────────────
+window._toggle         = toggleDoc;
+window._addPlayer      = addPlayer;
+window._saveRename     = saveRename;
+window._toggleEdit     = toggleEditMode;
+window._confirmRemove  = confirmRemove;
+window._jumpTo         = jumpTo;
+window._addPod         = addPod;
+window._togglePodEdit  = togglePodEdit;
+window._savePodRename  = savePodRename;
 </script>
 </body>
 </html>
