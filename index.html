@@ -117,14 +117,23 @@
     <div class="modal-title">Set up your groups</div>
     <div class="modal-sub">Enter names for each group and member. You can update these any time.</div>
     <div id="setup-fields"></div>
-    <div class="btn-row">
+vim index.html    <div class="btn-row">
       <button class="btn-secondary" id="setup-cancel">Cancel</button>
       <button class="btn-primary sm" id="setup-save">Save & start</button>
     </div>
   </div>
 </div>
 <div id="status-bar"></div>
-<script src="config.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCFwXa_E7chRYrGqLql25VT1_chvUwUfek",
+  authDomain: "monksdocs.firebaseapp.com",
+  projectId: "monksdocs",
+  storageBucket: "monksdocs.firebasestorage.app",
+  messagingSenderId: "726102792209",
+  appId: "1:726102792209:web:44b352954806f342deb9b0"
+};
+</script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
