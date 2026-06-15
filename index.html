@@ -172,6 +172,9 @@
     </div>
     <div class="groups" id="groups-container"></div>
   </main>
+  <footer style="text-align:center; padding: 1.5rem; font-size: 11px; color: #444; letter-spacing: .08em;">
+    built by <span style="color: #cc0000; font-weight: 600;">Fantasma Was Here</span>
+  </footer>
 </div>
 
 <div id="confirm-modal">
@@ -204,19 +207,7 @@ import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from
 import { getFirestore, doc, setDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 // ── Default players (imported to Firestore on first run, NOT shown in UI from here) ──
-const DEFAULT_PODS = {
-  1: ["John Isalambo (C)","Caleb Kiprotich","Simon Jawichre","Camille Marlyn","Gabriel Ogweno","Stephen Mankone","Kevin Komen"],
-  2: ["Wambani Osundwa (C)","Jeremy Odhiambo","Meshack Opagala","Brian Nyamboki","Arnold Keya","Emmanuel Adoyo","Peter Naman"],
-  3: ["Meshack Ongechi (C)","Morgan Ngumbi","Loui Ramone","Jerry Olem","John Ochido","Hopefaustin Tokali"],
-  4: ["Zephenes Obwanga (C)","Wyclife Ayieko","Patrick Vieri","Livingstone O.","Joshua Ongeri","Reagan Morgan","Eugene Odhiambo"],
-  5: ["Burungo Nyanja (C)","Noah Otieno","Timothy Ochieng","Ezekiel Apida","Teddy Owino","Jakinda Roy","Shem Kisiara"],
-  6: ["Felix Okumu (C)","Kwame Walgwe","Isaac Kubasu","Feishal Ochieng","Elly Okomo","Malova Graham"],
-  7: ["Kevin Mburu (C)","Delton Mwinami","Philip Walukana","Kevin Mbogo","Eliud Ondieki","Max Barasa","Ephy King'uku"],
-  8: ["Isaac Maundu (C)","Peter Ondicho","Nyongesa Wekesa","Elias Owino","Samuel Owino","Duke Monda","Denzel Kipkorir"],
-  9: ["Joseph Omondi (C)","Terry Okumu","Ian Bakari","Alvin Ogutu","Dennis Mulinge","Tim Trevor"],
-  10: ["Michael Owen (C)","Cornish Mose","Davian Nabiswa","Wayne Rooney","Jonathan Bravo","Amos Omariba"],
-  11: ["Felix Omondi (C)","Alvin Otieno","Elly Ojwang","Harlequin Abraham","Victor Rheins","Victor Omupere"]
-};
+const DEFAULT_PODS = {};
 
 const DOCS = [
   "Passport Photo","National ID/BC","Player Profile","Code of Conduct",
