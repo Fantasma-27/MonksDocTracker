@@ -594,12 +594,14 @@ function jumpTo(podId, playerId){
 function renderUI(){
   updateTotalBar();
   const cont=document.getElementById('groups-container');
-  // Full rebuild on sync (handles add/remove pod from other admin)
-  cont.innerHTML='';
-  localData.podOrder.forEach(podId=>{
-    const podName=(localData.podNames||{})[podId]||`Pod ${localData.podOrder.indexOf(podId)+1}`;
-    appendPodCard(podId, podName, true);
-  });
+  if(cont.children.length === 0){
+    // First load only — build cards
+    localData.podOrder.forEach(podId=>{
+      const podName=(localData.podNames||{})[podId]||`Pod ${localData.podOrder.indexOf(podId)+1}`;
+      appendPodCard(podId, podName, true);
+    });
+  }
+  // Always refresh data without rebuilding
   refreshAllButtons();
 }
 
