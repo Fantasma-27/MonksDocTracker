@@ -648,6 +648,7 @@ head.addEventListener('click',e=>{
   titleInput.addEventListener('focus',()=>{ renameBtn.style.display='none'; saveBtn.style.display='inline-block'; });
   titleInput.addEventListener('blur',()=>{ setTimeout(()=>{ renameBtn.style.display='inline-block'; saveBtn.style.display='none'; },200); });
 
+  mem.addEventListener('click', e=>{ e.stopPropagation(); });
   card.appendChild(head); card.appendChild(barWrap); card.appendChild(mem);
   cont.appendChild(card);
   if(!skipScroll){ card.scrollIntoView({behavior:'smooth',block:'nearest'}); }
